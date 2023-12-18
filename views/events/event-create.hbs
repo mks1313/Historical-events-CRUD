@@ -1,0 +1,30 @@
+<div class="background-container">
+   <div class="createhbs">
+        <h1 style="color: rgb(2, 8, 2);">Create a New Historical Event</h1>
+                  {{#if successMessage}}
+                          <p style="color: rgb(96, 40, 192);">{{successMessage}}</p>
+                     {{/if}}
+
+              <form action="/events/create" method="POST" enctype="multipart/form-data">
+ 
+                 <label class="label">Title</label>
+                     <input type="text" name="title" required>
+                 <label class="label">Date</label>
+                     <input type="date" name="date" required>
+                 <label class="label">Location</label>
+                     <input type="text" name="location" required>
+                 <label class="label">Description</label>
+                     <input type="text" name="description" required>
+                 <label class="label">Links</label>
+                     <input type="text" name="links">
+                 <label class="label">Image</label>
+                     <input type="file" name="image"> 
+                 <label class="label">NotableCharacters</label>
+                     <input type="text" name="notableCharacters">
+
+                   <button type="submit">Create Event</button>
+                   <button type="button" onclick="window.location='/events/event-archive'">Discard</button>
+             </form>
+
+    </div>
+</div>

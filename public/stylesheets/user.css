@@ -1,0 +1,68 @@
+#user {
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/user-background.jpg'); 
+  }
+  /* button, nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
+
+#closeuserbtn {
+  background-color: #6a4caf;
+  color:whitesmoke;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-right: 10px; 
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333; 
+  font-weight: bold;
+}
+#user {
+    position: relative;
+  }
+  
+  .user-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .user-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user-navigation li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .user-navigation a {
+    text-decoration: none;
+    color: blue; 
+  }
+  
