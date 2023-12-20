@@ -1,26 +1,29 @@
-
 <body class="bodyArchive">
-    <nav class="user-navigation">
-        <ul>
+  <nav class="user-navigation">
+    <ul>
       <li>
-        <a href="/users/profile"> Back to your profile</a>
+        <a href="/users/profile">Back to your profile</a>
       </li>
       <li>
         <a href="/events/event-create">Create new Event</a>
       </li>
-      </ul>
-    </nav>
+    </ul>
+  </nav>
 
-<div class="event-cards-container">
-  {{#each events}}
-    <div class="event-card">
-      <a href="/events/{{ id }}">
-        <div class="event-card-image" style="background-image: url('{{ image }}');"></div>
-        <div class="event-card-title">
-          {{ title }}
-        </div>
-      </a>
-    </div>
-  {{/each}}
-</div>
+  <div class="event-cards-container">
+    {{#each events}}
+      <div class="event-card">
+        <a href="/events/{{ id }}">
+          <div class="event-card-image" style="background-image: url('{{ image }}');"></div>
+          <div class="event-card-title">
+            {{ title }}
+          </div>
+          <div class="event-card-creator">
+            Created by: {{ creator.username }}
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
 </body>
+

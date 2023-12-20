@@ -99,8 +99,8 @@
   background-image: url('/images/fondoTemario.jpeg'); /* Ruta de tu imagen de fondo */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Fija la imagen de fondo */
-  height: 100vh; /* Ajusta la altura según tus necesidades */
+  background-attachment: fixed;
+  height: 100vh; 
   display: flex;
   align-items: center;
   justify-content: center;

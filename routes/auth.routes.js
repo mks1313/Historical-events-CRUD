@@ -135,11 +135,15 @@ router.post("/login", isLoggedOut, (req, res, next) => {
               .render("auth/login", { errorMessage: "Wrong credentials." });
             return;
           }
-
+          req.session.user = {
+            _id: user._id,
+            username: user.username,
+           
+          };
           // Add the user object to the session object
-          req.session.currentUser = user.toObject();
+          req.session.user = user.toObject();
           
-          delete req.session.currentUser.password;
+          delete req.session.user.password;
          
           res.redirect("/users/profile");
         })

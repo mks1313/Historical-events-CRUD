@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const defaultImage = '/images/event-dafault.jpg';
+const defaultImage = ('/images/event-dafault.jpg');
 
 const historicalEventSchema = new Schema(
   {
@@ -30,6 +30,10 @@ const historicalEventSchema = new Schema(
   },
   notableCharacters: {
     type: [String],
+  },
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   },
 }
 );

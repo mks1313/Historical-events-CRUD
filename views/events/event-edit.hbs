@@ -1,4 +1,4 @@
-<div class="background-container">
+{{!-- <div class="background-container">
    <div class="createhbs">
         <h1 style="color: rgb(2, 8, 2);">Edit Historical Event</h1>
 
@@ -8,3 +8,52 @@
         </form>
     </div>
 </div>
+<!-- event-edit.hbs -->
+
+<body class="bodyEdit">
+  <nav class="user-navigation">
+    <ul>
+      <li>
+        <a href="/users/profile">Back to your profile</a>
+      </li>
+      <li>
+        <a href="/events/event-create">Create new Event</a>
+      </li>
+    </ul>
+  </nav> --}}
+  <div class="edit-event-form">
+    <h2>Edit Event</h2>
+    <form action="/events/{{ event._id }}" method="POST" enctype="multipart/form-data">
+      <!-- Título -->
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="{{ event.title }}" required>
+
+      <!-- Fecha -->
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" value="{{ formatDate event.date }}" required>
+
+      <!-- Ubicación -->
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" value="{{ event.location }}" required>
+
+      <!-- Descripción -->
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required>{{ event.description }}</textarea>
+
+      <!-- Enlaces -->
+      {{!-- <label for="links">Links (comma-separated):</label>
+      <input type="text" id="links" name="links" value="{{ formattedLinks (', ') }}"> --}}
+
+      <!-- Personajes notables -->
+      {{!-- <label for="notableCharacters">Notable Characters (comma-separated):</label>
+      <input type="text" id="notableCharacters" name="notableCharacters" value="{{ event.notableCharacters.join(', ') }}"> --}}
+
+      <!-- Imagen -->
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image">
+
+      <!-- Botón de envío -->
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</body>

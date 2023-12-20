@@ -5,7 +5,10 @@
 </p>
 
 <img src="{{ event.image }}" alt="imagen">
-
+<hr>
+    <p> 
+    Created by: {{ creator.username }} 
+    </p>
 <hr>
 
-<a href="/events/{{event._id}}/delete">Delete</a> | <a href="/events/{{event._id}}/edit">Edit</a> 
+<a href="/events/{{ event._id }}/delete">Delete</a> | <a href="/events/{{ event._id }}/edit">Edit</a> | <a href="/events/event-archive">Back</a>
