@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const HistoricalEvent = require("../models/HistoricalEvent.model");
 const fileUploader = require('../config/cloudinary.config');
-const creatorMiddleware = require('../middleware/isEditor');
+const isLoggedIn = require("../middleware/isLoggedIn");
+const helpers = require('../config/helpers');
+
 
 // Ruta para obtener todos los eventos
-router.get("/event-archive", (req, res, next) => {
+router.get("/event-archive", isLoggedIn, (req, res, next) => {
     HistoricalEvent.find()
         .populate('creator', 'username')
         .then(allEvents => {
@@ -15,13 +17,14 @@ router.get("/event-archive", (req, res, next) => {
             next(error);
         });
 });
-router.get('/event-create', (req, res) => {
+
+router.get('/event-create', isLoggedIn, (req, res) => {
     res.render('events/event-create');
   
   });
 
 // Ruta para crear un nuevo evento
-router.post("/create", fileUploader.single('image'), (req, res, next) => {
+router.post("/create", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
     const { title, date, location, description, links, notableCharacters } = req.body;
     const image = req.file ? req.file.path : undefined;
     const creator = req.session.user._id;
@@ -49,22 +52,27 @@ router.post("/create", fileUploader.single('image'), (req, res, next) => {
 
 
 // Ruta para ver un evento específico
-router.get("/:id", (req, res, next) => {
+router.get("/:id", isLoggedIn,  (req, res, next) => {
     const { id } = req.params;
 
     HistoricalEvent.findById(id)
+        .populate('creator', 'username')
+        .populate('comments.author', 'username')  
+        .populate('ratings.user', 'username') 
         .then(event => {
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
             }
-            res.render('events/event-single', { event });
+            const isEventCreator = req.user && req.user._id.equals(event.creator._id);
+
+            res.render('events/event-single', { event, isEventCreator });
         })
         .catch(error => {
             next(error);
         });
 });
 // Ruta para obtener el formulario de edición de un evento
-router.get('/:id/edit', (req, res, next) => {
+router.get('/:id/edit', isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     HistoricalEvent.findById(id)
@@ -72,8 +80,7 @@ router.get('/:id/edit', (req, res, next) => {
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
             }
-            // const formattedLinks = event.links.join(', ');
-            res.render('events/event-edit', { event });
+            res.render('events/event-edit',  event );
         })
         .catch(error => {
             next(error);
@@ -81,7 +88,7 @@ router.get('/:id/edit', (req, res, next) => {
 });
 
 // Ruta para procesar la actualización de un evento
-router.post('/:id/edit', fileUploader.single('image'), (req, res, next) => {
+router.post('/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
     const { id } = req.params;
     const updatedEventData = req.body;
 
@@ -91,13 +98,14 @@ router.post('/:id/edit', fileUploader.single('image'), (req, res, next) => {
     }
 
     HistoricalEvent.findByIdAndUpdate(id, updatedEventData, { new: true })
-        .then(updatedEvent => {
+    .then(updatedEvent => {
             if (!updatedEvent) {
                 return res.status(404).json({ error: "Event not found" });
             }
-
-            req.flash('success', 'Event successfully updated!');
-            res.redirect('/events/event-archive');
+           
+            res.locals.successMessage = 'Event UPDATED successfully';
+            const rutaRedireccion = `/events/${updatedEvent._id}`;
+            res.redirect(rutaRedireccion);
         })
         .catch(error => {
             next(error);
@@ -107,33 +115,17 @@ router.post('/:id/edit', fileUploader.single('image'), (req, res, next) => {
 
 
 // Ruta para eliminar un evento
-router.get('/:id/delete', creatorMiddleware, (req, res) => {
+router.get('/:id/delete', isLoggedIn, (req, res) => {
 
     const { id } = req.params;
   
     HistoricalEvent.findByIdAndDelete(id)
       .then( () => {
+        res.locals.successMessage = 'Event DELETED successfully';
         res.redirect('/events/event-archive')
       });
   
   });
-// router.delete("/:id", (req, res, next) => {
-//     const { id } = req.params;
-
-//     HistoricalEvent.findByIdAndDelete(id)
-//         .then(deletedEvent => {
-//             // Si no se encuentra el evento, devuelve un 404
-//             if (!deletedEvent) {
-//                 return res.status(404).json({ error: "Event not found" });
-//             }
-//             // res.json({ message: "Successfully deleted event" });
-//             res.status(200).json({ message: "Successfully deleted event" });
-//             res.redirect('events/event-archive');
-//         })
-//         .catch(error => {
-//             next(error);
-//         });
-// });
 
 module.exports = router;
 

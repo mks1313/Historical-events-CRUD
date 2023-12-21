@@ -13,6 +13,9 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+const helpers = require('./config/helpers');
+app.locals.helpers = helpers;
+hbs.registerHelper(helpers);
 
 const app = express();
 const session = require('express-session');
@@ -23,6 +26,8 @@ require("./config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "HISTORY SITE....";
 const browserSync = require("browser-sync");
+const flash = require('connect-flash');
+
 
 app.use((req, res, next) => {
     res.locals.successMessage = ''; 
@@ -47,6 +52,8 @@ browserSync({
       saveUninitialized: false,
     }));
 
+    app.use(flash());
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
@@ -60,10 +67,13 @@ app.use("/events", eventsRoutes);
 const usersRoutes = require("./routes/users.routes");
 app.use("/users", usersRoutes);
 
+// const commentsRoutes = require("./routes/comments.routes");
+// app.use("comments", commentsRoutes);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
+
 
 
 

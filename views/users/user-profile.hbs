@@ -1,47 +1,86 @@
-<div id="user">
-  <h1>Bienvenido!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <!-- Agrega la referencia al archivo de estilos de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Agrega tu propio archivo de estilos si es necesario -->
+  <!-- <link rel="stylesheet" href="tu-archivo-de-estilos.css"> -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
 
-  <form action="/auth/logout" method="POST">
-    <button type="submit" id="closeuserbtn">Cerrar Sesión</button>
-  </form>
+    #user {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
 
-  <nav class="user-navigation">
-    <ul>
-      <li>
-        <a href="#">Profile</a>
-      </li>
-      <li>
-        <a href="/events/event-archive">All Events</a>
-      </li>
-      <li>
-        <a href="/events/event-create">Create new Event</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+    .user-navigation {
+      margin-top: 20px;
+    }
+    .container {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
 
+<div class="container">
+  <div id="user" class="text-center">
+    <h1 class="display-4">¡Wellcome, {{ user.username }}!</h1>
 
-
-
-
-{{!-- {{#content "main"}}
-  <div class="user-profile-container">
-    <div class="profile-header">
-      {{#if currentUser}}
-        <h2>Bienvenido, {{currentUser.username}}!</h2>
-        <img src="{{currentUser.profileImageURL}}" alt="Foto de perfil" class="profile-image" />
-      {{else}}
-        <h2>Bienvenido</h2>
-        <img src="/images/default-profile-image.jpg" alt="Foto de perfil por defecto" class="profile-image" />
-      {{/if}}
-    </div>
-    <div class="profile-info">
-      <div class="profile-card">
-        <h3>Tus Estadísticas</h3>
-        <p>Eventos publicados: {{currentUser.publishedEventsCount}}</p>
-        <p>Eventos evaluados: {{currentUser.evaluatedEventsCount}}</p>
-        <p>Total de estrellas recibidas: {{currentUser.totalStarsReceived}}</p>
-      </div>
-    </div>
+    <nav class="user-navigation">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/editprofile">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events/event-archive">All events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events/event-create">Create New Event</a>
+        </li>
+        <form action="/auth/logout" method="POST">
+          <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+      </ul>
+    </nav>
+    <div class="row">
+            <div class="col-md-8">
+                <!-- Detalles del perfil -->
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <!-- Agrega más detalles según tu modelo de usuario -->
+            </div>
   </div>
-{{/content}} --}}
+
+  <!-- Aquí puedes agregar más contenido del perfil según sea necesario -->
+</div>
+            <div class="col-md-4">
+                <!-- Imagen de perfil -->
+                {{#if user.profileImage}}
+                <img src="{{user.profileImage}}" alt="Profile Image" class="img-fluid profile-image">
+            {{else}}
+                <!-- Si no hay imagen de perfil, muestra la imagen por defecto -->
+                <img src="/images/user-default.png" alt="Default Profile Image" class="img-fluid profile-image">
+            {{/if}}
+            </div>
+
+<!-- Agrega la referencia al archivo de scripts de Bootstrap y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+

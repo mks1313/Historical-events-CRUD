@@ -1,29 +1,39 @@
 <body class="bodyArchive">
-  <nav class="user-navigation">
-    <ul>
-      <li>
-        <a href="/users/profile">Back to your profile</a>
-      </li>
-      <li>
-        <a href="/events/event-create">Create new Event</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="event-cards-container">
-    {{#each events}}
-      <div class="event-card">
-        <a href="/events/{{ id }}">
-          <div class="event-card-image" style="background-image: url('{{ image }}');"></div>
-          <div class="event-card-title">
-            {{ title }}
-          </div>
-          <div class="event-card-creator">
-            Created by: {{ creator.username }}
-          </div>
-        </a>
-      </div>
-    {{/each}}
+  <div class="events-container">
+    <nav class="user-navigation">
+      <ul>
+        <li>
+          <a href="/users/profile">Back to your profile</a> | <a href="/events/event-create">Create new Event</a>
+        </li>
+      </ul>
+    </nav>
+    <h1>All Events here!</h1>
+    <div class="event-cards-container">
+      {{#each events}}
+        <div class="event-card">
+          <a href="/events/{{ id }}">
+            <div class="event-card-image" style="background-image: url('{{ image }}');"></div>
+            <div class="event-card-title">
+              {{ title }}
+            </div>
+                <div class="event-card-rating">
+                     Rating: {{ helpers.calculateAverageRating this.ratings }}
+                 </div>
+            <div class="event-card-creator">
+              Created by: {{ creator.username }}
+            </div>
+            <div class="event-card-rating">
+              Rating: {{ calculateAverageRating this.ratings }}
+            </div>
+            <div class="event-card-comments">
+              Comments: {{ this.comments.length }}
+            </div>
+          </a>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </body>
+
+
 

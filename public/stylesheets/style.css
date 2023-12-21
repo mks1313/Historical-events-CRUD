@@ -308,66 +308,7 @@ header {
   background-color: rgba(255, 255, 255, 0.8);
  
 }
-/* LOGIN */
 
-/* #login-form {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #f9f9f9;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
-
-
-
-button:hover {
-  background-color: #2767de;
-}
-
-.signup-section {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.signup-section p {
-  margin-bottom: 10px;
-}
-
-.signup-section a {
-  color: #007bff;
-  text-decoration: none;
-}
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-
-#login-form {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #f9f9f9;
-} */
 #login-form {
   max-width: 400px;
   margin: auto;

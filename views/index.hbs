@@ -1,16 +1,4 @@
-{{!-- <div class="container" style="background-image: url('/images/first1.jpg'); background-size: cover; background-position: center; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1>{{appTitle}} 🚀</h1>
-<h2><p>Welcome !</p></h2>
-
-    <nav>
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-        <a href="/about"> About us....</a>
-    </nav>
-
-   
-</div> --}}
- <body class="bodyindex">
+<body class="{{#if isLoggedIn}}logged-in{{else}}logged-out{{/if}} bodyindex">
     <video autoplay loop muted plays-inline class="background-video">
       <source
         src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/82f375e7-244f-4c21-90ac-9abd7549ed05"
@@ -41,4 +29,4 @@
         </h1>
       <div class="btn light"></div>
     </section>
-  </body>
+ </body>

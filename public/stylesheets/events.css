@@ -1,56 +1,103 @@
-/* Agrega estos estilos a tu archivo de estilos CSS */
+/* event.archive */
 .bodyArchive {
-    /* background-image: url('/images/about.jpg'); */
-    background-color: antiquewhite;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; 
+  background-color: antiquewhite;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative; 
+}
+
+.events-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .event-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-   
-  }
-  
-  .event-card {
-    width: 200px;
-    margin: 10px;
-    overflow: hidden;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .event-card a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .event-card-image {
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .event-card-title {
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  /* TEMARIO */
-  .createhbs {
-    background-color: aquamarine;
-  }
- .label {
-  color: #5c39bb; 
-  font-size: 24px;
- }
- .createhbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.event-card {
+  width: 300px;
+  margin: 20px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+.event-card a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.event-card-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* .event-card .event-card-image img {
+  max-width: 100% !important;
+  height: auto !important;
+} */
+
+
+.event-card-title {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.event-card-creator {
+  padding: 10px;
+  text-align: center;
+  color: #555;
+}
+/* HASTA AQUI EVENTOS Y SUS ESTILOS */
+
+.user-navigation {
+  background-color: #c14141;
+  color: #fff;
+  padding: 10px;
+  z-index: 1; 
+  border-radius: 10px;
+}
+
+/* .user-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+} */
+
+.user-navigation a {
+  text-decoration: none;
+  color: #fff;
+}
+
+h1 {
+  color: #333;
+}
+
+/* Estilos para formularios */
+.createhbs {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -67,6 +114,8 @@
 .createhbs label {
   display: block;
   margin: 10px 0;
+  color: #5c39bb;
+  font-size: 24px;
 }
 
 .createhbs input,
@@ -84,33 +133,46 @@
 }
 
 .createhbs button {
-  background-color: #4caf50;
+  background-color: #8923a2;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .createhbs button:hover {
   background-color: #45a049;
 }
+
+/* Estilos para fondos de secciones específicas */
 .background-container {
-  background-image: url('/images/fondoTemario.jpeg'); /* Ruta de tu imagen de fondo */
+  background-image: url('/images/fondoTemario.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.createhbs {
-  max-width: 600px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para resaltar el formulario */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+@media only screen and (max-width: 600px) {
+  .event-card {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
 }
+
+/* ESTILOS PARA IMAGEN EN EVENT-SINGLE */
+
+.event-image {
+  max-width: 100%; /* La imagen no superará el ancho del contenedor */
+  height: auto;    /* La altura se ajustará automáticamente para mantener la proporción */
+  display: block;  /* Elimina cualquier espacio adicional debajo de la imagen */
+  margin: 0 auto;   /* Centra la imagen en su contenedor si el ancho es menor que el contenedor */
+
+  /* Estilos adicionales según tus preferencias */
+}
+
+

@@ -4,11 +4,40 @@
   {{ event.description }}
 </p>
 
-<img src="{{ event.image }}" alt="imagen">
+<img src="{{ event.image }}" alt="imagen" class="event-image">
+
 <hr>
-    <p> 
-    Created by: {{ creator.username }} 
-    </p>
+<div class="event-card-creator">
+  Created by: {{ creator.username }}
+</div>
 <hr>
 
-<a href="/events/{{ event._id }}/delete">Delete</a> | <a href="/events/{{ event._id }}/edit">Edit</a> | <a href="/events/event-archive">Back</a>
+<!-- Sección de Comentarios -->
+<h2>Comments</h2>
+<ul>
+  {{#each event.comments}}
+    <li>
+      <strong>{{ this.author.username }}:</strong> {{ this.content }}
+    </li>
+  {{/each}}
+</ul>
+
+<!-- Sección de Valoraciones -->
+<h2>Ratings</h2>
+<ul>
+  {{#each event.ratings}}
+    <li>
+      <strong>{{ this.user.username }}:</strong> {{ this.value }} stars
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/events/{{event.id}}/delete">Delete</a> | <a href="/events/{{event._id}}/edit">Edit</a> | <a href="/events/event-archive">Back</a>
+
+
+
+{{!-- {{#if isEventCreator}}
+    <a href="/events/{{event._id}}/edit">Editar Evento</a>
+    <a href="/events/{{event._id}}/delete">Eliminar Evento</a>
+{{/if}}
+<a href="/events/event-archive">Back</a> --}}
