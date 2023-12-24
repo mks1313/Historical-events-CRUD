@@ -1,0 +1,14 @@
+<body class="body-event-comments">
+    <div class="container-comments">
+        <h1 class="h-comments">{{ event.title }} - Comments</h1>
+
+        {{#each event.comments}}
+            <div class="comment-comments">
+                <p><strong>{{ this.author.username }}</strong>: {{ this.content }}</p>
+            </div>
+        {{/each}}
+
+       <a href="/events/{{ event._id }}" class="link-comment">Back</a>
+
+    </div>
+</body>

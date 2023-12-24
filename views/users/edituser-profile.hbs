@@ -95,17 +95,17 @@
 
     <!-- Contenido de Edición de Perfil -->
     <section class="container mt-5">
-        <h2 class="mb-4">Edit your Perfil</h2>
+        <h2 class="mb-4">Edit your Profile</h2>
         <form action="/users/editprofile" method="POST" enctype="multipart/form-data">
             <!-- Campos del formulario para editar el perfil -->
             <div class="form-group">
                 <label for="username">New username:</label>
-                <input type="text" class="form-control" id="username" name="username" value="{{ username }}" required>
+                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
             </div>
 
             <div class="form-group">
                 <label for="password">New password:</label>
-                <input type="password" class="form-control" id="password" name="password" value="{{ password }}" required>
+                <input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" required>
             </div>
 
             <div class="form-group">

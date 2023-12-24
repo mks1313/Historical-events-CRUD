@@ -1,43 +1,57 @@
-<h1>{{ event.title }}</h1>
+<body class="bodyArchive">
+     <div class="container">
+         <h1 class="heading">{{ event.title }}</h1>
+           <p class="description">{{ event.description }}</p>
+            <img src="{{ event.image }}" alt="imagen" class="event-image">
+            <div class="event-card-creator">
+              Created by: {{ creator.username }}
+            </div>
 
-<p>
-  {{ event.description }}
-</p>
+    <!-- Formulario para comentarios -->
+              <form action="/events/{{ event._id }}/comments" method="POST" class="form-container">
+                <label for="comment" class="form-label">Leave a comment:</label>
+                  <textarea id="comment" name="content" rows="4" cols="50" class="form-textarea"></textarea>
+                     <button type="submit" class="form-button">Submit Comment</button>
+               </form>
+                    <div class="event-card-comments">
+                       Comments: {{ this.comments.length }}
+                    </div>
+                    <a href="/comments/{{ event._id }}/event-comments">View Comments</a>
 
-<img src="{{ event.image }}" alt="imagen" class="event-image">
+    <!-- Formulario para valoración -->
+                <form action="/events/{{ event._id }}/ratings" method="POST" class="form-container">
+                <input type="hidden" name="userId" value="{{ userId }}">
+                   <label for="rating" class="form-label">Rate this event:</label>
+     <!-- Representación de las estrellas -->
+                         <div class="star-container">
+                              <input type="radio" id="star5" name="value" value="5" class="star-input">
+                                  <label for="star5" title="5 stars" class="star-label"></label>
+                              <input type="radio" id="star4" name="value" value="4" class="star-input">
+                                   <label for="star4" title="4 stars" class="star-label"></label>
+                              <input type="radio" id="star3" name="value" value="3" class="star-input">
+                                  <label for="star3" title="3 stars" class="star-label"></label>
+                              <input type="radio" id="star2" name="value" value="2" class="star-input">
+                                  <label for="star2" title="2 stars" class="star-label"></label>
+                              <input type="radio" id="star1" name="value" value="1" class="star-input">
+                                  <label for="star1" title="1 star" class="star-label"></label>
+                           </div>
 
-<hr>
-<div class="event-card-creator">
-  Created by: {{ creator.username }}
-</div>
-<hr>
+                             <button type="submit" class="form-button">Submit Rating</button>
+                 </form>
 
-<!-- Sección de Comentarios -->
-<h2>Comments</h2>
-<ul>
-  {{#each event.comments}}
-    <li>
-      <strong>{{ this.author.username }}:</strong> {{ this.content }}
-    </li>
-  {{/each}}
-</ul>
+    <!-- Muestra la valoración promedio -->
+    <div class="star-container">
+      {{ calculateAverageRating event.ratings }}
+    </div>
 
-<!-- Sección de Valoraciones -->
-<h2>Ratings</h2>
-<ul>
-  {{#each event.ratings}}
-    <li>
-      <strong>{{ this.user.username }}:</strong> {{ this.value }} stars
-    </li>
-  {{/each}}
-</ul>
+    <!-- Enlaces -->
+    <div class="link-container">
+      <a href="/events/{{event.id}}/delete" class="link">Delete</a>
+      <a href="/events/{{event._id}}/edit" class="link">Edit</a>
+      <a href="/events/event-archive" class="link">Back</a>
+    </div>
+  </div>
+</body>
 
-<a href="/events/{{event.id}}/delete">Delete</a> | <a href="/events/{{event._id}}/edit">Edit</a> | <a href="/events/event-archive">Back</a>
-
-
-
-{{!-- {{#if isEventCreator}}
-    <a href="/events/{{event._id}}/edit">Editar Evento</a>
-    <a href="/events/{{event._id}}/delete">Eliminar Evento</a>
-{{/if}}
-<a href="/events/event-archive">Back</a> --}}
+ <script src="/js/rating.js"></script>
+ {{!-- <script src="/config/helpers.js"></script> --}}

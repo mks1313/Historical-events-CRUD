@@ -15,6 +15,7 @@ const commentSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+   
   },
 });
 
@@ -40,8 +41,8 @@ const historicalEventSchema = new Schema(
       trim: true,
     },
     date: {
-      type: Date,
-      required: true,
+       type: Date, 
+       default: Date.now, 
     },
     location: {
       type: String,
@@ -75,5 +76,7 @@ const historicalEventSchema = new Schema(
 );
 
 const HistoricalEvent = model("HistoricalEvent", historicalEventSchema);
+const Comment = model("Comment", commentSchema); 
+const Rating = model("Rating", ratingSchema);
 
-module.exports = HistoricalEvent;
+module.exports = { HistoricalEvent, Comment, Rating };

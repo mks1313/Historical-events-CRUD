@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const HistoricalEvent = require("../models/HistoricalEvent.model");
+const { HistoricalEvent, Comment, Rating }  = require("../models/HistoricalEvent.model");
 const fileUploader = require('../config/cloudinary.config');
 const isLoggedIn = require("../middleware/isLoggedIn");
 const helpers = require('../config/helpers');
@@ -10,6 +10,8 @@ const helpers = require('../config/helpers');
 router.get("/event-archive", isLoggedIn, (req, res, next) => {
     HistoricalEvent.find()
         .populate('creator', 'username')
+        .populate('comments.author', 'username')  
+        .populate('ratings.user', 'username') 
         .then(allEvents => {
             res.render('events/event-archive', { events: allEvents });
         })
@@ -71,6 +73,72 @@ router.get("/:id", isLoggedIn,  (req, res, next) => {
             next(error);
         });
 });
+// Ruta para ver los comentarios de un evento
+// router.get("/:id/comments", isLoggedIn, eventsController.viewEventComments);
+
+router.post("/:id/comments", isLoggedIn, (req, res, next) => {
+    const eventId = req.params.id;
+    const { content, value } = req.body;
+
+    // Aquí deberías obtener el userId de la sesión actual
+    const userId = req.session.user._id;
+
+    HistoricalEvent.findById(eventId)
+        .then(event => {
+            if (!event) {
+                return res.status(404).json({ error: "Event not found" });
+            }
+
+            // Verifica si se proporcionó contenido (comentario) y agrega el comentario al evento
+            if (content) {
+                event.comments.push({ author: userId, content });
+            }
+
+            return event.save();
+        })
+        .then(updatedEvent => {
+            // Devuelve una respuesta indicando que la interacción se realizó correctamente
+            // res.status(201).json({ message: "Interacción agregada correctamente", updatedEvent });
+            res.locals.successMessage = 'Event UPDATED successfully';
+            const rutaRedireccion = `/events/${updatedEvent._id}`;
+            res.redirect(rutaRedireccion);
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+// Ruta para agregar valoraciones a un evento
+router.post("/:id/ratings", isLoggedIn, (req, res, next) => {
+    const eventId = req.params.id;
+    const { userId, value } = req.body;
+    
+
+    HistoricalEvent.findById(eventId)
+        .then(event => {
+            if (!event) {
+                return res.status(404).json({ error: "Event not found" });
+            }
+
+            // Verifica si se proporcionó valor (rating) y agrega la valoración al evento
+            if (value) {
+                event.ratings.push({ user: userId, value });
+            }
+
+            return event.save();
+        })
+        .then(updatedEvent => {
+            // Devuelve una respuesta indicando que la interacción se realizó correctamente
+            res.status(201).json({ message: "Valoración agregada correctamente", updatedEvent });
+        })
+        .catch(error => {
+            next(error);
+            res.status(500).json({ error: "Internal Server Error" });
+        });
+});
+
+
+
+
 // Ruta para obtener el formulario de edición de un evento
 router.get('/:id/edit', isLoggedIn, (req, res, next) => {
     const { id } = req.params;
@@ -128,5 +196,4 @@ router.get('/:id/delete', isLoggedIn, (req, res) => {
   });
 
 module.exports = router;
-
 

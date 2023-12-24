@@ -9,8 +9,8 @@ const User = require("../models/User.model");
 
 router.get("/profile", isLoggedIn, (req, res) => {
     const user = req.session.user; 
-    console.log("User data from session:", user);
-    res.render("users/user-profile")
+    // console.log("User data from session:", user);
+    res.render("users/user-profile", { user });
 })
 
 // RUTA DE EDITAR PERFIL

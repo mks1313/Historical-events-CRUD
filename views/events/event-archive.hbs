@@ -16,9 +16,6 @@
             <div class="event-card-title">
               {{ title }}
             </div>
-                <div class="event-card-rating">
-                     Rating: {{ helpers.calculateAverageRating this.ratings }}
-                 </div>
             <div class="event-card-creator">
               Created by: {{ creator.username }}
             </div>
@@ -34,6 +31,8 @@
     </div>
   </div>
 </body>
+ <script src="/js/rating.js"></script>
+{{!-- <script src="/config/helpers.js"></script> --}}
 
 
 

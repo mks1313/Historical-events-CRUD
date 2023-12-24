@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
-  <!-- Agrega la referencia al archivo de estilos de Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Agrega tu propio archivo de estilos si es necesario -->
   <!-- <link rel="stylesheet" href="tu-archivo-de-estilos.css"> -->
   <style>
     body {
@@ -56,23 +54,20 @@
                 <!-- Detalles del perfil -->
                 <p><strong>Username:</strong> {{ user.username }}</p>
                 <p><strong>Email:</strong> {{ user.email }}</p>
-                <!-- Agrega más detalles según tu modelo de usuario -->
             </div>
   </div>
 
-  <!-- Aquí puedes agregar más contenido del perfil según sea necesario -->
 </div>
             <div class="col-md-4">
                 <!-- Imagen de perfil -->
                 {{#if user.profileImage}}
                 <img src="{{user.profileImage}}" alt="Profile Image" class="img-fluid profile-image">
             {{else}}
-                <!-- Si no hay imagen de perfil, muestra la imagen por defecto -->
                 <img src="/images/user-default.png" alt="Default Profile Image" class="img-fluid profile-image">
             {{/if}}
             </div>
 
-<!-- Agrega la referencia al archivo de scripts de Bootstrap y jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
