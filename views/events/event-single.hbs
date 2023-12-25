@@ -19,9 +19,9 @@
                     <a href="/comments/{{ event._id }}/event-comments">View Comments</a>
 
     <!-- Formulario para valoración -->
-                <form action="/events/{{ event._id }}/ratings" method="POST" class="form-container">
-                <input type="hidden" name="userId" value="{{ userId }}">
-                   <label for="rating" class="form-label">Rate this event:</label>
+                           <form action="/rating/{{ event._id }}/rating" method="POST" class="form-container">
+    <input type="hidden" name="userId" value="{{ this.userId }}">
+    <label for="rating" class="form-label">Rate this event:</label>
      <!-- Representación de las estrellas -->
                          <div class="star-container">
                               <input type="radio" id="star5" name="value" value="5" class="star-input">

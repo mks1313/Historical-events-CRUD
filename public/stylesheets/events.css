@@ -245,7 +245,7 @@ body {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url('/images/estrella3.png'); 
+  background-image: url('/images/estrella3.png');
   background-size: cover;
   cursor: pointer;
 }

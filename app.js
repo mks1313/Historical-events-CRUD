@@ -65,6 +65,9 @@ app.use("/auth", authRoutes);
 const commentsRoutes = require("./routes/comments.routes");
 app.use("/comments", commentsRoutes);
 
+const ratingRoutes = require("./routes/rating.routes");
+app.use("/rating", ratingRoutes);
+
 const eventsRoutes = require("./routes/events.routes");
 app.use("/events", eventsRoutes);
 

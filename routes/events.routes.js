@@ -5,6 +5,11 @@ const fileUploader = require('../config/cloudinary.config');
 const isLoggedIn = require("../middleware/isLoggedIn");
 const helpers = require('../config/helpers');
 
+const ratingRouter = require('./rating.routes'); // Importa la nueva ruta de valoración
+
+// Ruta para agregar valoraciones a un evento
+router.use('/:id', ratingRouter);
+
 
 // Ruta para obtener todos los eventos
 router.get("/event-archive", isLoggedIn, (req, res, next) => {
@@ -79,7 +84,7 @@ router.get("/:id", isLoggedIn,  (req, res, next) => {
 router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     const eventId = req.params.id;
     const { content, value } = req.body;
-
+    
     // Aquí deberías obtener el userId de la sesión actual
     const userId = req.session.user._id;
 
@@ -108,33 +113,33 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
         });
 });
 // Ruta para agregar valoraciones a un evento
-router.post("/:id/ratings", isLoggedIn, (req, res, next) => {
-    const eventId = req.params.id;
-    const { userId, value } = req.body;
+// router.post("/:id/rating", isLoggedIn, (req, res, next) => {
+//     const eventId = req.params.id;
+//     const { userId, value } = req.body;
     
 
-    HistoricalEvent.findById(eventId)
-        .then(event => {
-            if (!event) {
-                return res.status(404).json({ error: "Event not found" });
-            }
+//     HistoricalEvent.findById(eventId)
+//         .then(event => {
+//             if (!event) {
+//                 return res.status(404).json({ error: "Event not found" });
+//             }
 
-            // Verifica si se proporcionó valor (rating) y agrega la valoración al evento
-            if (value) {
-                event.ratings.push({ user: userId, value });
-            }
+//             // Verifica si se proporcionó valor (rating) y agrega la valoración al evento
+//             if (value) {
+//                 event.ratings.push({ user: userId, value });
+//             }
 
-            return event.save();
-        })
-        .then(updatedEvent => {
-            // Devuelve una respuesta indicando que la interacción se realizó correctamente
-            res.status(201).json({ message: "Valoración agregada correctamente", updatedEvent });
-        })
-        .catch(error => {
-            next(error);
-            res.status(500).json({ error: "Internal Server Error" });
-        });
-});
+//             return event.save();
+//         })
+//         .then(updatedEvent => {
+//             // Devuelve una respuesta indicando que la interacción se realizó correctamente
+//             res.status(201).json({ message: "Valoración agregada correctamente", updatedEvent });
+//         })
+//         .catch(error => {
+//             next(error);
+//             res.status(500).json({ error: "Internal Server Error" });
+//         });
+// });
 
 
 

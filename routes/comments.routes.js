@@ -6,7 +6,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get('/:id/event-comments', isLoggedIn, (req, res, next) => {
     const eventId = req.params.id;
-
     HistoricalEvent.findById(eventId)
         .populate('comments.author', 'username')
         .then(event => {
@@ -26,7 +25,7 @@ router.get('/:id/event-comments', isLoggedIn, (req, res, next) => {
 router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     const eventId = req.params.id;
     const { userId, content, value } = req.body;
-
+    
     HistoricalEvent.findById(eventId)
         .populate('comments.author', 'username') 
         .populate('ratings.user', 'username')  

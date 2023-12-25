@@ -17,19 +17,28 @@
       });
     });
   });
-
+  function isValidRating(value) {
+    const numericValue = parseFloat(value);
+    return !isNaN(numericValue) && numericValue >= 1 && numericValue <= 5;
+}
   function rateEvent(rating) {
     document.getElementById('rating').value = rating;
     fillStars(rating);
     calculateRating();
   }
 
+  // function fillStars(count) {
+  //   const stars = document.querySelectorAll('.star');
+  //   stars.forEach((star, index) => {
+  //     star.classList.toggle('filled', index < count);
+  //   });
+  // }
   function fillStars(count) {
-    const stars = document.querySelectorAll('.star');
+    const stars = document.querySelectorAll('.star-input');
     stars.forEach((star, index) => {
-      star.classList.toggle('filled', index < count);
+        star.checked = index < count;
     });
-  }
+}
 
   function calculateRating() {
     const selectedStars = document.querySelectorAll('.star.filled').length;
