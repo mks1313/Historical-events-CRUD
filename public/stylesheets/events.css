@@ -1,91 +1,14 @@
-/* event.archive */
-.bodyArchive {
-  background-color: antiquewhite;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  position: relative; 
-}
-
-.events-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.event-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-
-.event-card {
-  width: 300px;
-  margin: 20px;
-  overflow: hidden;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-image: url('/images/background-login.webp');
-  transition: transform 0.3s ease-in-out;
-}
-
-.event-card:hover {
-  transform: scale(1.05);
-}
-
-.event-card a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-}
-
-.event-card-image {
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-/* .event-card .event-card-image img {
-  max-width: 100% !important;
-  height: auto !important;
-} */
-
-
-.event-card-title {
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.event-card-creator {
-  padding: 10px;
-  text-align: center;
-  color: #555;
-}
-/* HASTA AQUI EVENTOS Y SUS ESTILOS */
 
 .user-navigation {
-  background-color: #c14141;
+  background-color: #707fde;
   color: #fff;
   padding: 10px;
   z-index: 1; 
   border-radius: 10px;
+  top: 0;
+  width: auto;
+  position: fixed;
 }
-
-/* .user-navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-} */
 
 .user-navigation a {
   text-decoration: none;
@@ -98,7 +21,7 @@ h1 {
 
 /* Estilos para formularios */
 .createhbs {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f8f8f8;
@@ -139,101 +62,91 @@ h1 {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-}
+} 
 
 .createhbs button:hover {
   background-color: #45a049;
 }
 
 /* Estilos para fondos de secciones específicas */
-.background-container {
+.background-container-create {
   background-image: url('/images/fondoTemario.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}  
 
-@media only screen and (max-width: 600px) {
-  .event-card {
-    width: calc(100% - 20px);
-    margin: 10px;
-  }
-}
 
-/* ESTILOS PARA IMAGEN EN EVENT-SINGLE */
 
-.event-image {
-  max-width: 100%; /* La imagen no superará el ancho del contenedor */
-  height: auto;    /* La altura se ajustará automáticamente para mantener la proporción */
-  display: block;  /* Elimina cualquier espacio adicional debajo de la imagen */
-  margin: 0 auto;   /* Centra la imagen en su contenedor si el ancho es menor que el contenedor */
 
-  /* Estilos adicionales según tus preferencias */
-}
 
-/* event-single */
-body {
+
+/* EVENT SINGLE */
+
+/* Estilos generales */
+/* .bodyArchive-single {
   font-family: 'Times New Roman', Times, serif;
-  background-color: #f4f4f4;
+  background-color: #f4daa3;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
+.container-single-event {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.heading {
+/* Encabezado */
+.heading-single {
+  font-size: 2em;
+  color: #2bbc41;
+  margin-bottom: 10px;
+}
+
+/* Descripción */
+.description-single {
+  font-size: 1.2em;
   color: #333;
-  text-align: center;
 }
 
-.description {
-  margin-bottom: 20px;
-}
-
+/* Imagen */
 .event-image {
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 20px 0;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
+/* Comentarios y Valoración */
 .form-container {
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .form-label {
-  display: block;
+  font-size: 1.2em;
+  color: #333;
   margin-bottom: 10px;
 }
 
 .form-textarea {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 10px;
+  resize: vertical;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
-.form-button {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.form-button:hover {
-  background-color: #555;
-}
-
-.star-container {
+.star-container-single {
   margin-bottom: 20px;
 }
 
@@ -242,87 +155,97 @@ body {
 }
 
 .star-label {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-image: url('/images/estrella3.png');
-  background-size: cover;
+  font-size: 1.5em;
+  color: #ffcc00;
   cursor: pointer;
 }
 
+.form-button {
+  background-color: #2bbc41;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
 
-.link-container {
-  margin-bottom: 20px;
+.form-button:hover {
+  background-color: #1a8e32;
+}
+
+/* Valoración promedio */
+.star-container-single {
+  font-size: 1.5em;
+  color: #ffcc00;
+}
+
+/* Enlaces */
+.link-container-single {
+  margin-top: 20px;
 }
 
 .link {
-  color: #333;
-  text-decoration: none;
+  display: inline-block;
   margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2em;
 }
 
 .link:hover {
-  text-decoration: underline;
-}
-.star-label.filled {
-  background-image: url('/images/estrellas.jpg'); 
+  color: #2bbc41;
 }
 
-/* comments.css */
-
-.body-event-comments {
-  font-family: 'Arial', sans-serif;
-  background-color: #5cea5c;
-  margin: 0;
-  padding: 0;
-}
-
-.container-comments {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.comment-comments {
-  background-color: gold;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.comment-comments p {
-  margin: 0;
-}
-
-.link-comment {
+/* Enlaces de acción */
+.action-link {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  text-align: center;
+  padding: 10px 20px;
   text-decoration: none;
-  font-weight: bold;
   color: #fff;
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 1.2em;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
 }
 
-.link-comment:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-  color: #fff;
+.delete-link {
+  background-color: #e74c3c;
 }
 
-.h-comments {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  text-align: center;
+.edit-link {
+  background-color: #3498db;
+}
+
+.back-link {
+  background-color: #95a5a6;
+}
+
+.view-comments-link {
+  background-color: #2980b9;
+}
+
+.action-link:hover {
+  filter: brightness(1.2);
+}
+
+/* Márgenes entre enlaces */
+.link-container-single {
   margin-top: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #007bff;
 }
 
+/* Estilos para los enlaces específicos */
+.delete-link:hover {
+  background-color: #c0392b;
+}
 
+.edit-link:hover {
+  background-color: #2980b9;
+}
 
+.back-link:hover {
+  background-color: #7f8c8d;
+}
+
+.view-comments-link:hover {
+  background-color: #1a6698;
+} 

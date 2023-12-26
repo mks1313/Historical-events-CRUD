@@ -1,9 +1,11 @@
-<div class="background-container">
+<body>
+    
+<div class="background-container-create">
    <div class="createhbs">
         <h1 style="color: rgb(2, 8, 2);">Create a New Historical Event</h1>
-                  {{#if successMessage}}
+                  {{!-- {{#if successMessage}}
                           <p style="color: rgb(96, 40, 192);">{{successMessage}}</p>
-                     {{/if}}
+                     {{/if}} --}}
 
               <form action="/events/create" method="POST" enctype="multipart/form-data">
  
@@ -14,7 +16,7 @@
                  <label class="label">Location</label>
                      <input type="text" name="location" required>
                  <label class="label">Description</label>
-                     <input type="text" name="description" required>
+                     <textarea name="description" rows="5" required></textarea>
                  <label class="label">Links</label>
                      <input type="text" name="links">
                  <label class="label">Image</label>
@@ -28,3 +30,4 @@
 
     </div>
 </div>
+</body>

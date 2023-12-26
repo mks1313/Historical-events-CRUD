@@ -1,0 +1,126 @@
+.bodyArchive-archive {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffedcc;
+    color: #444; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .events-container-archive {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  
+  .event-cards-container-archive {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    
+    .event-card-archive {
+        background-color: #ffa183;
+        width: 300px;
+        margin: 20px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .event-card-archive:hover {
+        transform: scale(1.05);
+    }
+    
+    .event-card-archive a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+    }
+    
+    .event-card-image-archive {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .event-card-title-archive {
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .event-card-creator-archive {
+        padding: 10px;
+        text-align: center;
+        color: #1976D2; 
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .event-card-rating-archive {
+        padding: 10px;
+        text-align: center;
+        color: #D32F2F; /
+    }
+    
+    .event-card-comments-archive {
+        padding: 10px;
+        text-align: center;
+        color: #388E3C; 
+    }
+    
+    h1.archive {
+        font-size: 2em;
+        margin-bottom: 20px;
+        font-size: 56px;
+        color: #ff5733;
+    }
+    
+    .user-navigation-archive a {
+        color: #6657d7;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+        font-size: 18px;
+    }
+    
+    .user-navigation-archive a:hover {
+        color: #388E3C; 
+    }
+    
+    .user-navigation-archive ul li {
+        list-style: none;
+        margin-right: 20px;
+    }
+    .user-navigation-archive {
+      background-color: #ede5e5; 
+      color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+      size: 23px;
+      letter-spacing: 0.172em;
+      display: inline-block;
+  }
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3e3e3e;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    text-decoration: none;
+  }
+  
+  #back-to-top:hover {
+    background-color: #555;
+  }
+  
+    
+    
+    
+  

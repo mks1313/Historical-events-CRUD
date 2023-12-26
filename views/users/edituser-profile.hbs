@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,16 +20,16 @@
 
         .navbar-brand,
         .navbar-nav .nav-link {
-            color: #ffffff;
+            color: #5f2cc5;
         }
 
         .navbar-toggler-icon {
-            background-color: #ffffff;
+            background-color: #425cab;
         }
 
         /* Personaliza el estilo del contenido de edición de perfil */
         .container {
-            background-color: #ffffff;
+            background-color: #739be6;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -125,6 +125,131 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Agrega tu propio archivo de estilos si es necesario -->
+    <!-- <link rel="stylesheet" href="/styles.css"> -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #5f2cc5;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #425cab;
+        }
+
+        .container {
+            background-color: #739be6;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .form-group label {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #545b62;
+            border-color: #545b62;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tu Sitio Histórico</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/profile">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/events/event-archive">All Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/events/event-create">Create new Event</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido de Edición de Perfil -->
+    <section class="container mt-5">
+        <h2 class="mb-4">Edit Your Profile</h2>
+        <form action="/users/editprofile" method="POST" enctype="multipart/form-data">
+            <!-- Campos del formulario para editar el perfil -->
+            <div class="form-group">
+                <label for="username">New username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">New password:</label>
+                <input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profileImage">New Image of Profile:</label>
+                <input type="file" class="form-control-file" id="profileImage" name="profileImage" value="{{ user.profileImage }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a class="btn btn-secondary text-center" href="/users/profile">Discard</a>
+
+        </form>
+    </section>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>
-
-
