@@ -27,6 +27,7 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
+        font: oblique bold 120% cursive;
     }
     
     .event-card-archive:hover {
@@ -64,7 +65,7 @@
     .event-card-rating-archive {
         padding: 10px;
         text-align: center;
-        color: #D32F2F; /
+        color: #D32F2F; 
     }
     
     .event-card-comments-archive {
@@ -73,11 +74,12 @@
         color: #388E3C; 
     }
     
-    h1.archive {
-        font-size: 2em;
+    .h1-archive {
+        font-size: 56px; 
         margin-bottom: 20px;
-        font-size: 56px;
-        color: #ff5733;
+        color: #6489d8;
+        font-style: oblique;
+        font-weight: bold;   
     }
     
     .user-navigation-archive a {
@@ -95,32 +97,30 @@
         list-style: none;
         margin-right: 20px;
     }
+    
     .user-navigation-archive {
-      background-color: #ede5e5; 
-      color: #fff;
-      padding: 10px;
-      border-radius: 20px;
-      size: 23px;
-      letter-spacing: 0.172em;
-      display: inline-block;
-  }
-  #back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #3e3e3e;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-    text-decoration: none;
-  }
-  
-  #back-to-top:hover {
-    background-color: #555;
-  }
-  
+        background-color: #ede5e5; 
+        color: #fff;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 23px; /* Corrected from 'size' */
+        letter-spacing: 0.172em;
+        display: inline-block;
+    }
     
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #3e3e3e;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+        text-decoration: none;
+    }
     
+    #back-to-top:hover {
+        background-color: #555;
+    }
     
-  

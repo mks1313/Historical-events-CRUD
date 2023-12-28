@@ -44,11 +44,12 @@ nav a {
 #user {
     position: relative;
   } */
-  
+  /* ---------------------------------------------------- */
   .user-navigation {
     position: absolute;
     top: 0;
     right: 0;
+    margin-top: 20px;
   }
   
   .user-navigation ul {
@@ -66,4 +67,121 @@ nav a {
     text-decoration: none;
     color: blue; 
   }
+  .userprofile{
+    background-image: url('/images/first.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #user {
+    background-image: url('/images/user-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: rgb(12, 9, 9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+
+
+  .container {
+    padding-top: 100px;
+  }
+
+  /* EDIT-USER!!!!!!!!! */
+
+
   
+  .edituser-body {
+    background-color: #acc0d4;
+}
+
+.edituser-navbar {
+    background-color: #96d669;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.edituser-navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edituser-brand-container {
+    flex-grow: 1;
+}
+
+.edituser-navbar-brand {
+    color: #5f2cc5;
+}
+
+.edituser-navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.edituser-navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.edituser-navbar-nav .nav-link {
+    color: #5f2cc5;
+}
+
+.edituser-container {
+    background-color: #739be6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.edituser-heading {
+    color: #007bff;
+}
+
+.edituser-form-group label {
+    color: #007bff;
+}
+
+.edituser-input,
+.edituser-input-file {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    resize: vertical;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edituser-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.edituser-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.edituser-btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.edituser-btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+}
+
+

@@ -29,6 +29,7 @@ const projectName = "HISTORY SITE....";
 const browserSync = require("browser-sync");
 const flash = require('connect-flash');
 
+app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.successMessage = ''; 
@@ -47,13 +48,12 @@ browserSync({
   });
 }
 
-  app.use(session({
-      secret: 'tu_secreto', 
-      resave: false,
-      saveUninitialized: false,
-    }));
+app.use(session({
+  secret: 'tu_secreto',
+  resave: false,
+  saveUninitialized: false,
+}));
 
-    app.use(flash());
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");

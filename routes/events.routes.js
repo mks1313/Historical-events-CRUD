@@ -102,8 +102,7 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
             return event.save();
         })
         .then(updatedEvent => {
-            // Devuelve una respuesta indicando que la interacción se realizó correctamente
-            // res.status(201).json({ message: "Interacción agregada correctamente", updatedEvent });
+           
             res.locals.successMessage = 'Event UPDATED successfully';
             const rutaRedireccion = `/events/${updatedEvent._id}`;
             res.redirect(rutaRedireccion);
@@ -153,7 +152,13 @@ router.get('/:id/edit', isLoggedIn, (req, res, next) => {
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
             }
-            res.render('events/event-edit',  event );
+
+            // Verifica si el usuario actual es el propietario del evento
+            if (event.creator.toString() !== req.session.user._id.toString()) {
+                return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+            }
+
+            res.render('events/event-edit', event);
         })
         .catch(error => {
             next(error);
@@ -170,12 +175,25 @@ router.post('/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, ne
         updatedEventData.image = image;
     }
 
-    HistoricalEvent.findByIdAndUpdate(id, updatedEventData, { new: true })
-    .then(updatedEvent => {
+    HistoricalEvent.findById(id)
+        .then(event => {
+            if (!event) {
+                return res.status(404).json({ error: "Event not found" });
+            }
+
+            // Verifica si el usuario actual es el propietario del evento
+            if (event.creator.toString() !== req.session.user._id.toString()) {
+                return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+            }
+
+            // Actualiza el evento solo si el usuario es el propietario
+            return HistoricalEvent.findByIdAndUpdate(id, updatedEventData, { new: true });
+        })
+        .then(updatedEvent => {
             if (!updatedEvent) {
                 return res.status(404).json({ error: "Event not found" });
             }
-           
+
             res.locals.successMessage = 'Event UPDATED successfully';
             const rutaRedireccion = `/events/${updatedEvent._id}`;
             res.redirect(rutaRedireccion);
@@ -185,20 +203,31 @@ router.post('/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, ne
         });
 });
 
-
-
 // Ruta para eliminar un evento
-router.get('/:id/delete', isLoggedIn, (req, res) => {
-
+router.get('/:id/delete', isLoggedIn, (req, res, next) => {
     const { id } = req.params;
-  
-    HistoricalEvent.findByIdAndDelete(id)
-      .then( () => {
-        res.locals.successMessage = 'Event DELETED successfully';
-        res.redirect('/events/event-archive')
-      });
-  
-  });
+
+    HistoricalEvent.findById(id)
+        .then(event => {
+            if (!event) {
+                return res.status(404).json({ error: "Event not found" });
+            }
+
+            // Verifica si el usuario actual es el propietario del evento
+            if (event.creator.toString() !== req.session.user._id.toString()) {
+                return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+            }
+
+            // Elimina el evento solo si el usuario es el propietario
+            return HistoricalEvent.findByIdAndDelete(id);
+        })
+        .then(() => {
+            res.locals.successMessage = 'Event DELETED successfully';
+            res.redirect('/events/event-archive');
+        })
+        .catch(error => {
+            next(error);
+        });
+});
 
 module.exports = router;
-

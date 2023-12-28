@@ -19,8 +19,9 @@
   });
   function isValidRating(value) {
     const numericValue = parseFloat(value);
-    return !isNaN(numericValue) && numericValue >= 1 && numericValue <= 5;
-}
+    return Number.isFinite(numericValue) && numericValue >= 1 && numericValue <= 5;
+  }
+  
   function rateEvent(rating) {
     document.getElementById('rating').value = rating;
     fillStars(rating);
@@ -59,9 +60,9 @@
     }
   }
 
-  document.getElementById("back-to-top").addEventListener("click", function () {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  });
+  // document.getElementById("back-to-top").addEventListener("click", function () {
+  //   document.body.scrollTop = 0;
+  //   document.documentElement.scrollTop = 0;
+  // });
 
 

@@ -1,0 +1,59 @@
+.body-event-comments {
+    font-family: 'Arial', sans-serif;
+    background-color: #d0c06c; /* Color de fondo general */
+    color: #333; /* Color de texto principal */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-comments {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #c5e977;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .h-comments {
+    font-size: 2em;
+    color: #303e62; /* Color del encabezado */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .comment-comments:nth-child(odd) {
+    background-color: #eee0e0; /* Color de fondo para comentarios impares */
+  }
+  
+  .comment-comments:nth-child(even) {
+    background-color: #e2b1b1; /* Color de fondo para comentarios pares */
+  }
+  
+  .comment-comments {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comment-comments p {
+    margin: 0;
+  }
+  
+  .link-comment {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #6d6ebe; /* Color de fondo para el enlace "Back" */
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .link-comment:hover {
+    background-color: #b852a2; /* Cambio de color al pasar el ratón sobre el enlace */
+  }
+  
+  

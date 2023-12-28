@@ -5,39 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="tu-archivo-de-estilos.css"> -->
-  <style>
-    body {
-        background-image: url('/images/first.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
-    #user {
-      background-image: url('/images/user-background.jpg');
-      background-size: cover;
-      background-position: center;
-        background-attachment: fixed;
-      color: rgb(12, 9, 9);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 50px;
-    }
-
-    .user-navigation {
-      margin-top: 20px;
-    }
-    .container {
-      padding-top: 100px;
-    }
-  </style>
-</head>
-<body>
+<body class="userprofile">
 
 <div class="container">
   <div id="user" class="text-center">
@@ -61,7 +30,6 @@
     </nav>
     <div class="row">
             <div class="col-md-8">
-                <!-- Detalles del perfil -->
                 <p><strong>Username:</strong> {{ user.username }}</p>
                 <p><strong>Email:</strong> {{ user.email }}</p>
             </div>
@@ -69,7 +37,6 @@
 
 </div>
             <div class="col-md-4">
-                <!-- Imagen de perfil -->
                 {{#if user.profileImage}}
                 <img src="{{user.profileImage}}" alt="Profile Image" class="img-fluid profile-image">
             {{else}}
@@ -84,6 +51,7 @@
 
 </body>
 </html>
+
 
 
 

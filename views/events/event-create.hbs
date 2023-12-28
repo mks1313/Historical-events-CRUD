@@ -1,31 +1,28 @@
-<body>
+<body class="body-edit">
     
-<div class="background-container-create">
-   <div class="createhbs">
-        <h1 style="color: rgb(2, 8, 2);">Create a New Historical Event</h1>
-                  {{!-- {{#if successMessage}}
-                          <p style="color: rgb(96, 40, 192);">{{successMessage}}</p>
-                     {{/if}} --}}
+<div class="background-container-edit">
+   <div class="edit-hbs">
+        <h1 class="edit-page-title">Create a New Historical Event</h1>
 
-              <form action="/events/create" method="POST" enctype="multipart/form-data">
+              <form action="/events/create" method="POST" enctype="multipart/form-data" class="edit-form">
  
-                 <label class="label">Title</label>
+                 <label class="label-edit">Title</label>
                      <input type="text" name="title" required>
-                 <label class="label">Date</label>
+                 <label class="label-edit">Date</label>
                      <input type="date" name="date" required>
-                 <label class="label">Location</label>
+                 <label class="label-edit">Location</label>
                      <input type="text" name="location" required>
-                 <label class="label">Description</label>
+                 <label class="label-edit">Description</label>
                      <textarea name="description" rows="5" required></textarea>
-                 <label class="label">Links</label>
+                 <label class="label-edit">Links</label>
                      <input type="text" name="links">
-                 <label class="label">Image</label>
+                 <label class="label-edit">Image</label>
                      <input type="file" name="image"> 
-                 <label class="label">NotableCharacters</label>
+                 <label class="label-edit">NotableCharacters</label>
                      <input type="text" name="notableCharacters">
 
-                   <button type="submit">Create Event</button>
-                   <button type="button" onclick="window.location='/events/event-archive'">Discard</button>
+                   <button type="submit" class="update-edit">Create Event</button>
+                   <button type="button" class="discard-edit" onclick="window.location='/events/event-archive'">Discard</button>
              </form>
 
     </div>
