@@ -18,8 +18,11 @@ const helpers = require('./config/helpers');
 hbs.registerHelper(helpers);
 
 
+
+
 const app = express();
 const session = require('express-session');
+const flash = require('express-flash');
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
@@ -27,7 +30,6 @@ require("./config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "HISTORY SITE....";
 const browserSync = require("browser-sync");
-const flash = require('connect-flash');
 
 app.use(flash());
 
@@ -53,7 +55,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");

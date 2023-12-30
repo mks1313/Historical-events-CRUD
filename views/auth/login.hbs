@@ -1,56 +1,26 @@
-<div id="login-img">
-<div id="login-form">
-
-  <form action="/auth/login" method="POST"> 
-
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Your email" />
-    </div>
-
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Your password" />
-    </div>
-
-    <button type="submit" id="loginbtn">Log In</button>
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-
-  <div class="signup-section">
-    <p>Still don't have an account??</p>
-    <a href="/auth/signup">Signup</a>
-  </div>
-</div>
-
-</div>
+<link rel="stylesheet" href="/stylesheets/login.css">
 
 
-  {{!-- <link rel="stylesheet" href="/stylesheets/login.css">
-
-
-<div class="container right-panel-active">
-  <!-- Sign Up -->
-  <div class="container__form container--signup">
-    <form action="/auth/login" class="form" id="form1" method="POST">
-      <h2 class="form__title">Sign Up</h2>
-      <input type="text" placeholder="User" class="input" />
-      <input type="email" placeholder="Email" class="input" />
-      <input type="password" placeholder="Password" class="input" />
-      <button class="btn">Sign Up</button>
-    </form>
-  </div>
-
+  <a href="/" class="btn">Home Page</a>
+<div class="container">
   <!-- Sign In -->
   <div class="container__form container--signin">
     <form action="/auth/login" class="form" id="form2" method="POST">
       <h2 class="form__title">Login</h2>
-      <input type="email" placeholder="Email" class="input" />
-      <input type="password" placeholder="Password" class="input" />
-      <button class="btn">Login</button>
+      <input type="email" name="email" placeholder="Email" class="input" />
+      <input type="password" name="password" placeholder="Password" class="input" />
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Sign Up -->
+  <div class="container__form container--signup">
+    <form action="/auth/signup" class="form" id="form1" method="POST">
+      <h2 class="form__title">Sign Up</h2>
+      <input type="text" name="username" placeholder="User" class="input" />
+      <input type="email" name="email" placeholder="Email" class="input" />
+      <input type="password" name="password" placeholder="Password" class="input" />
+      <button class="btn">Sign Up</button>
     </form>
   </div>
 
@@ -66,7 +36,9 @@
     </div>
   </div>
 </div>
-  <script src="/js/login.js"></script> --}}
+
+
+  <script src="/js/login.js"></script>
 
 
 

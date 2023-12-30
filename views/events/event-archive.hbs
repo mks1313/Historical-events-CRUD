@@ -1,11 +1,15 @@
 <body class="bodyArchive-archive">
   <div class="events-container-archive">
     <nav class="user-navigation-archive">
-      <ul>
-        <li>
-          <a href="/users/profile">Back to your profile</a>  |  <a href="/events/event-create">Create new Event</a>
-        </li>
-      </ul>
+     <ul>
+  <li>
+    {{#if isLoggedIn}}
+      <a href="/users/profile">Back to your profile</a> | <a href="/events/event-create">Create new Event</a>
+    {{else}}
+      <a href="/auth/login">Login</a> | <a href="/auth/signup">Signup</a> | <a href="/">Home Page</a>
+    {{/if}}
+  </li>
+</ul>
     </nav>
     <h1 class="archive">All Events here!</h1>
     <div class="event-cards-container-archive">
@@ -18,10 +22,12 @@
             </div>
             <div class="event-card-creator-archive">
               Created by: {{ creator.username }}
+
             </div>
-            <div class="event-card-rating-archive">
-              Rating: {{ calculateAverageRating this.ratings }}
-            </div>
+               <div class="event-card-rating-archive">
+                Rating: {{ this.averageRating.average }} ({{ this.averageRating.count }} votes)
+                </div>
+
             <div class="event-card-comments-archive">
               Comments: {{ this.comments.length }}
             </div>
@@ -32,8 +38,7 @@
     <a href="/events/event-archive" id="back-to-top" title="Go to Top">&#9650; Top</a>
 
   </div>
-  <script src="/js/rating.js"></script>
-<script src="/config/helpers.js"></script>
+  <script src="/js/scroll.js"></script>
 
 </body>
 

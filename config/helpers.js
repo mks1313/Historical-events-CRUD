@@ -1,5 +1,3 @@
-// helpers.js
-
 function calculateAverageRating(ratings) {
   if (ratings.length === 0) {
     return "No ratings yet";

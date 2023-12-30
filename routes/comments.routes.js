@@ -6,6 +6,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get('/:id/event-comments', isLoggedIn, (req, res, next) => {
     const eventId = req.params.id;
+   
     HistoricalEvent.findById(eventId)
         .populate('comments.author', 'username')
         .then(event => {
@@ -28,29 +29,24 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     
     HistoricalEvent.findById(eventId)
         .populate('comments.author', 'username') 
-        .populate('ratings.user', 'username')  
+        // .populate('ratings.user', 'username')  
         .then(event => {
+
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
             }
-
-            // Verifica si se proporcionó contenido (comentario) y agrega el comentario al evento
             if (content) {
                 event.comments.push({ author: userId, content });
             }
-
-            // Verifica si se proporcionó valor (rating) y agrega la valoración al evento
             if (value) {
                 event.ratings.push({ user: userId, value });
             }
-
             return event.save();
         })
         .then(updatedEvent => {
-            // Devuelve una respuesta indicando que la interacción se realizó correctamente
-            res.status(201).json({ message: "Interacción agregada correctamente", updatedEvent });
+            // res.status(201).json({ message: "Interacción agregada correctamente", updatedEvent });
 
-            // Mueve la redirección aquí
+            req.flash('successMessage', 'Interaction added successfully');
             const rutaRedireccion = `/events/${eventId}`;
             res.redirect(rutaRedireccion);
         })

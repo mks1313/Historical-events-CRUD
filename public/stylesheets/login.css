@@ -164,7 +164,12 @@
     padding: 0.9rem 4rem;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+    display: inline-block; 
+    width: auto; 
+    white-space: nowrap; 
+    margin: 0; 
   }
+ 
   
   .form > .btn {
     margin-top: 1.5rem;

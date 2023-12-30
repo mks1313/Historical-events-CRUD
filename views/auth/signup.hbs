@@ -1,24 +1,44 @@
-<div class="form-container" id="form">
+<link rel="stylesheet" href="/stylesheets/login.css">
 
-  <form action="/auth/signup" method="POST">
-    <!-- Tus campos de formulario aquí -->
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+  <a href="/" class="btn">Home Page</a>
+<div class="container">
+  <!-- Sign In -->
+  <div class="container__form container--signin">
+    <form action="/auth/login" class="form" id="form2" method="POST">
+      <h2 class="form__title">Login</h2>
+      <input type="email" name="email" placeholder="Email" class="input" />
+      <input type="password" name="password" placeholder="Password" class="input" />
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+  <!-- Sign Up -->
+  <div class="container__form container--signup">
+    <form action="/auth/signup" class="form" id="form1" method="POST">
+      <h2 class="form__title">Sign Up</h2>
+      <input type="text" name="username" placeholder="User" class="input" />
+      <input type="email" name="email" placeholder="Email" class="input" />
+      <input type="password" name="password" placeholder="Password" class="input" />
+      <button class="btn">Sign Up</button>
+    </form>
+  </div>
 
-    <button type="submit">Sign Up</button>
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+  <!-- Overlay -->
+  <div class="container__overlay">
+    <div class="overlay">
+      <div class="overlay__panel overlay--left">
+        <button class="btn" id="signIn">Login</button>
+      </div>
+      <div class="overlay__panel overlay--right">
+        <button class="btn" id="signUp">Sign Up</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+  <script src="/js/login.js"></script>
+
+
 

@@ -6,6 +6,7 @@ const fileUploader = require('../config/cloudinary.config');
 const User = require("../models/User.model");
 
 
+
 // RUTA DE PERFIL
 
 router.get("/profile", isLoggedIn, (req, res) => {

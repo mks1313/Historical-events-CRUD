@@ -1,3 +1,7 @@
+ {{!-- event-single.hbs --}}
+ <head>
+    <link rel="stylesheet" href="/stylesheets/event-single.css" /> 
+ </head>
  {{#if errorMessage}}
   <div class="alert alert-danger" role="alert">
     {{errorMessage}}
@@ -15,30 +19,6 @@
     </button>
   </div>
 {{/if}}
-<style>
-    .body-single {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        background-size: 100% 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-
-   
-</style>
-
-{{#if event.image}}
-    <style>
-        body {
-            background-image: url('{{ event.image }}');
-        }
-    </style>
-{{/if}}
-
 
 <body class="body-single">
   
@@ -78,34 +58,36 @@
             </form>
 
             <div class="comments-single">
-                Comments: {{ this.comments.length }}
+                Comments: {{ event.comments.length }}
             </div>
             <a href="/comments/{{ event._id }}/event-comments">View Comments</a>
 
             <!-- Formulario para valoración -->
             <form action="/rating/{{ event._id }}/rating" method="POST" class="form-container">
-                <input type="hidden" name="userId" value="{{ userId }}">
-                <label for="rating" class="form-label-single">Rate this event:</label>
-                <!-- Representación de las estrellas -->
-                <div class="star-container-single-hbs" id="star-container">
-                    <input type="radio" id="star5" name="value" value="5" class="star-input">
-                                  <label for="star5" title="5 stars" class="star-label"></label>
-                              <input type="radio" id="star4" name="value" value="4" class="star-input">
-                                   <label for="star4" title="4 stars" class="star-label"></label>
-                              <input type="radio" id="star3" name="value" value="3" class="star-input">
-                                  <label for="star3" title="3 stars" class="star-label"></label>
-                              <input type="radio" id="star2" name="value" value="2" class="star-input">
-                                  <label for="star2" title="2 stars" class="star-label"></label>
-                              <input type="radio" id="star1" name="value" value="1" class="star-input">
-                                  <label for="star1" title="1 star" class="star-label"></label>
-                </div>
-                <button type="submit" class="form-button-single">Submit Rating</button>
-            </form>
+    <input type="hidden" name="userId" value="{{ userId }}">
+    <label for="rating" class="form-label-single">Rate this event:</label>
+    <!-- Representación de las estrellas -->
+    <div class="star-container-single-hbs" id="star-container">
+        <input type="radio" id="star1" name="value" value="1" class="star-input">
+        <label for="star1" title="1 stars" class="star-label"></label>
+        <input type="radio" id="star2" name="value" value="2" class="star-input">
+        <label for="star2" title="2 stars" class="star-label"></label>
+        <input type="radio" id="star3" name="value" value="3" class="star-input">
+        <label for="star3" title="3 stars" class="star-label"></label>
+        <input type="radio" id="star4" name="value" value="4" class="star-input">
+        <label for="star2" title="4 stars" class="star-label"></label>
+        <input type="radio" id="star5" name="value" value="5" class="star-input">
+        <label for="star1" title="5 star" class="star-label"></label>
+    </div>
+    <button type="submit" class="form-button-single">Submit Rating</button>
+</form>
+
 
             <!-- Muestra la valoración promedio -->
             <div class="star-container-single">
-                {{ calculateAverageRating event.ratings }}
-            </div>
+                  Rating: {{averageRating.average}} ({{averageRating.count}} votes)
+                </div>
+
 
             <!-- Enlaces -->
             <div class="link-container-single">
@@ -116,9 +98,11 @@
         </div>
     </div>
 </div>
- <script src="/js/rating.js"></script>
- <script src="/config/helpers.js"></script>
 </body>
-
-
+ <script src="/js/rating.js"></script>
  
+
+
+
+
+

@@ -1,59 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #495057;
+    }
 
+    .userprofile {
+      
+    }
+
+    .profile-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler:focus, .navbar-dark .navbar-toggler:hover {
+            background-color: #ffffff;
+        }
+        .container-edituser {
+          margin-left: 400px;
+          
+        }
+  </style>
+</head>
 <body class="userprofile">
+   <nav class="navbar navbar-expand-lg navbar-dark" style="margin-right: 0px;margin-bottom: 0px;padding-top: 1px">
+        <div class="container-edituser">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/editprofile"> Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/events/event-archive">All Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/events/event-create">Create new Event</a>
+                    </li>
+                    <li class="nav-item ml-auto">
+                      <form action="/auth/logout" method="POST">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
 <div class="container">
   <div id="user" class="text-center">
     <h1 class="display-4">¡Wellcome, {{ user.username }}!</h1>
 
-    <nav class="user-navigation">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link" href="/users/editprofile">Edit Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/events/event-archive">All events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/events/event-create">Create New Event</a>
-        </li>
-        <form action="/auth/logout" method="POST">
-          <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
-      </ul>
-    </nav>
-    <div class="row">
-            <div class="col-md-8">
-                <p><strong>Username:</strong> {{ user.username }}</p>
-                <p><strong>Email:</strong> {{ user.email }}</p>
+    <div class="card mt-4">
+      <div class="row no-gutters">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Info:</h5>
+            <p class="card-text"><strong>Name:</strong> {{ user.username }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          {{#if user.profileImage}}
+            <img src="{{user.profileImage}}" alt="Imagen de Perfil" class="card-img profile-image">
+          {{else}}
+            <img src="/images/user-default.png" alt="Imagen de Perfil Predeterminada" class="card-img profile-image">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+      <div class="mt-4">
+                <h3>Your  Comments: {{ this.comments.length }} </h3>
             </div>
+            Your  Comments: {{ this.comments.length }}
   </div>
-
 </div>
-            <div class="col-md-4">
-                {{#if user.profileImage}}
-                <img src="{{user.profileImage}}" alt="Profile Image" class="img-fluid profile-image">
-            {{else}}
-                <img src="/images/user-default.png" alt="Default Profile Image" class="img-fluid profile-image">
-            {{/if}}
-            </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
-
-
-
-
-
-

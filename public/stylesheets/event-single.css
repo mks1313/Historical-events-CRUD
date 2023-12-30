@@ -3,16 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-.body-single {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 
 
 .container-single-event {
@@ -104,4 +95,34 @@
     text-decoration: underline;
 }
 
+.body-single {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
+.star-container-single-hbs {
+display: flex;
+align-items: center;
+}
+
+/* .star-input {
+display: none; 
+} */
+
+.star-label {
+/* width: 40px;
+height: 40px;  */
+background: url('/images/estrella3.png') no-repeat; 
+cursor: pointer;
+}
+
+.star-input:checked + .star-label {
+background: url('/images/estrellas.jpg') no-repeat;  
+}
