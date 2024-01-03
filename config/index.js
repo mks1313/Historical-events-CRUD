@@ -1,6 +1,6 @@
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
-
+const app = express();
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
 const logger = require("morgan");
@@ -9,6 +9,16 @@ const logger = require("morgan");
 // https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
 
+app.use(cookieParser('super hyper secret key', {
+  sameSite: 'Lax', // o SameSite=None si estás en producción
+  secure: false, // No es seguro en desarrollo
+}));
+
+// Ruta de ejemplo
+app.get('/set-cookie', (req, res) => {
+  res.cookie('cookieName', 'cookieValue', { sameSite: 'None' });
+  res.send('Cookie set successfully');
+});
 // ℹ️ Serves a custom favicon on each request
 // https://www.npmjs.com/package/serve-favicon
 const favicon = require("serve-favicon");

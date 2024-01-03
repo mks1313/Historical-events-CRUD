@@ -1,9 +1,20 @@
-.bodyArchive-archive {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #ffedcc;
-    color: #444; 
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+.bodyArchive-archive {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    /* background-image: url('/images/bg-event-archive.jpg'); */
+    /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;  */
+    background-color: rgb(122, 173, 234);
+    color: #444; 
   }
   
   .events-container-archive {
@@ -13,13 +24,18 @@
   
   
   .event-cards-container-archive {
+    background-image: url('/images/bg-event-archive.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
     
     .event-card-archive {
-        background-color: #ffa183;
+
+        background-color: #FF6F61;
         width: 300px;
         margin: 20px;
         overflow: hidden;
@@ -65,13 +81,13 @@
     .event-card-rating-archive {
         padding: 10px;
         text-align: center;
-        color: #D32F2F; 
+        color: #42a458; 
     }
     
     .event-card-comments-archive {
         padding: 10px;
         text-align: center;
-        color: #388E3C; 
+        color: #1976D2; 
     }
     
     .h1-archive {
@@ -90,7 +106,7 @@
     }
     
     .user-navigation-archive a:hover {
-        color: #388E3C; 
+        color: whitesmoke; 
     }
     
     .user-navigation-archive ul li {
@@ -99,11 +115,11 @@
     }
     
     .user-navigation-archive {
-        background-color: #ede5e5; 
+        /* background-color: #ede5e5;  */
         color: #fff;
         padding: 10px;
         border-radius: 20px;
-        font-size: 23px; /* Corrected from 'size' */
+        font-size: 23px; 
         letter-spacing: 0.172em;
         display: inline-block;
     }
@@ -121,6 +137,6 @@
     }
     
     #back-to-top:hover {
-        background-color: #555;
+        background-color: #ca7272;
     }
     

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const contentEnglish = document.getElementById('english');
     const contentCatalan = document.getElementById('catalan');
 
-    // Configuración predeterminada al cargar la página
+   
     showContent(contentSpanish);
     hideContent(contentEnglish);
     hideContent(contentCatalan);

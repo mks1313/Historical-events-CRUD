@@ -5,7 +5,7 @@
         <h1 class="edit-page-title">Edit your Historical Event!</h1>
               <form action="/events/{{ id }}/edit" method="POST" enctype="multipart/form-data" class="edit-form">
  
-                 <label class="label-edit">Title</label>
+                 <label class="label-edit" id="uppercase">Title</label>
                      <input type="text" name="title" value="{{ title }}">
                  <label class="label-edit">Date</label>
                      <input type="date" name="date" value="{{ date }}" >

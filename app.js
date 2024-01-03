@@ -40,6 +40,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'));
 
+
 app.locals.appTitle = `${capitalize(projectName)} Historical Events by Maksim`
 
 if (process.env.NODE_ENV === 'development') {
@@ -63,6 +64,9 @@ app.use("/", indexRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
+const usersRoutes = require("./routes/users.routes");
+app.use("/users", usersRoutes);
+
 const commentsRoutes = require("./routes/comments.routes");
 app.use("/comments", commentsRoutes);
 
@@ -72,8 +76,6 @@ app.use("/rating", ratingRoutes);
 const eventsRoutes = require("./routes/events.routes");
 app.use("/events", eventsRoutes);
 
-const usersRoutes = require("./routes/users.routes");
-app.use("/users", usersRoutes);
 
 
 

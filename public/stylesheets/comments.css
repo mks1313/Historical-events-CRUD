@@ -1,7 +1,7 @@
 .body-event-comments {
     font-family: 'Arial', sans-serif;
-    background-color: #d0c06c; /* Color de fondo general */
-    color: #333; /* Color de texto principal */
+    background-color: rgb(122, 173, 234); 
+    color: #333; 
     margin: 0;
     padding: 0;
   }
@@ -10,24 +10,24 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #c5e977;
+    background-color: #d7e7b5;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .h-comments {
     font-size: 2em;
-    color: #303e62; /* Color del encabezado */
+    color: #8b9dcb; 
     margin-bottom: 20px;
     text-align: center;
   }
   
   .comment-comments:nth-child(odd) {
-    background-color: #eee0e0; /* Color de fondo para comentarios impares */
+    background-color: #eee0e0; 
   }
   
   .comment-comments:nth-child(even) {
-    background-color: #e2b1b1; /* Color de fondo para comentarios pares */
+    background-color: #e2b1b1; 
   }
   
   .comment-comments {
@@ -47,13 +47,13 @@
     padding: 10px 20px;
     text-decoration: none;
     color: #fff;
-    background-color: #6d6ebe; /* Color de fondo para el enlace "Back" */
+    background-color: #6d6ebe; 
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out;
   }
   
   .link-comment:hover {
-    background-color: #b852a2; /* Cambio de color al pasar el ratón sobre el enlace */
+    background-color: #b852a2; 
   }
   
   

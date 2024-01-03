@@ -23,3 +23,4 @@ module.exports = capitalize;
 
 
 
+// const {calculateAverageRating } = require('../config/helpers');

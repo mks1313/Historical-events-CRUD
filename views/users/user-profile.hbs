@@ -5,13 +5,9 @@
   <title>User Profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    body {
+    .userprofile {
       background-color: #f8f9fa;
       color: #495057;
-    }
-
-    .userprofile {
-      
     }
 
     .profile-image {
@@ -66,32 +62,30 @@
 
 <div class="container">
   <div id="user" class="text-center">
-    <h1 class="display-4">¡Wellcome, {{ user.username }}!</h1>
+    <h1 class="display-4">¡Welcome, {{ user.username }}!</h1>
 
     <div class="card mt-4">
       <div class="row no-gutters">
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Info:</h5>
+            <h5 class="card-title">Informatión:</h5>
             <p class="card-text"><strong>Name:</strong> {{ user.username }}</p>
             <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+            <h5><strong>Events created:</strong> {{ eventCount }}</h5>
           </div>
         </div>
         <div class="col-md-4">
           {{#if user.profileImage}}
-            <img src="{{user.profileImage}}" alt="Imagen de Perfil" class="card-img profile-image">
+            <img src="{{ user.profileImage }}" alt="Imagen de Perfil" class="card-img profile-image">
           {{else}}
             <img src="/images/user-default.png" alt="Imagen de Perfil Predeterminada" class="card-img profile-image">
           {{/if}}
         </div>
       </div>
     </div>
-      <div class="mt-4">
-                <h3>Your  Comments: {{ this.comments.length }} </h3>
-            </div>
-            Your  Comments: {{ this.comments.length }}
   </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

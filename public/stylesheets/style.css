@@ -13,7 +13,7 @@
   min-height: 100vh;
 }
 
-header {
+.index {
   position: fixed;
   top: 0;
   left: 0;
@@ -176,7 +176,7 @@ header {
 }
 
 @media (max-width: 900px) {
-  header {
+  .index {
     padding: 1.3rem 5%;
   }
 
@@ -186,7 +186,7 @@ header {
 }
 
 @media (max-width: 700px) {
-  header::before {
+  .index::before {
     content: "";
     top: 0;
     left: 0;
@@ -198,7 +198,7 @@ header {
     z-index: -1;
   }
 
-  header::after {
+  .index::after {
     content: "";
     top: 0;
     left: -100%;

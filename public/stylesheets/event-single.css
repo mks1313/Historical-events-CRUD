@@ -1,28 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
 
 .container-single-event {
-    /* max-width: 1200px; 
-    margin: 0 auto;  */
-    /* max-width: 800px;
-    margin: 20px auto; */
-    background-color: rgba(255, 255, 255, 0.3);
-    /* border: 1px solid #ddd;
-    border-radius: 8px; */
+    background-color: rgba(126, 11, 11, 0.3);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     
 }
 
 .h1-single {
     font-size: 36px;
     margin-bottom: 10px;
-    color: #333;
+    color: #7b5e5e;
     text-align: center;
 }
 
@@ -33,6 +25,8 @@
 .event-details {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .label-single {
@@ -46,6 +40,7 @@
     flex: 1;
     padding: 20px;
     text-align: center;
+
 }
 
 .event-image {
@@ -68,6 +63,7 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: #333;
+    margin-bottom: 10px; 
 }
 
 
@@ -84,29 +80,15 @@
 .form-button-single:hover {
     background-color: #45a049;
 }
-.link-single {
+.link{
     color: #3498db;
     text-decoration: none;
     padding: 5px 10px;
     display: inline-block;
 }
-
-.link-single:hover {
+.link:hover {
     text-decoration: underline;
 }
-
-.body-single {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
 .star-container-single-hbs {
 display: flex;
 align-items: center;
@@ -121,8 +103,32 @@ display: none;
 height: 40px;  */
 background: url('/images/estrella3.png') no-repeat; 
 cursor: pointer;
+background-repeat: no-repeat;
 }
 
 .star-input:checked + .star-label {
 background: url('/images/estrellas.jpg') no-repeat;  
 }
+
+.link-container-single {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; 
+}
+
+.link-single {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    border: #2980b9;
+}
+
+.link-single:hover {
+    background-color: #2980b9;
+}
+

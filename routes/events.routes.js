@@ -13,8 +13,16 @@ router.get("/event-archive", secure, (req, res, next) => {
         .populate('creator', 'username')
         .populate('comments.author', 'username')  
         .populate('ratings.user', 'username') 
+        // .then(allEvents => {
+        //     res.render('events/event-archive', { events: allEvents });
+        // })
         .then(allEvents => {
-            res.render('events/event-archive', { events: allEvents });
+            const eventsWithRating = allEvents.map(event => ({
+                ...event.toObject(),
+                averageRating: helpers.calculateAverageRating(event.ratings)
+            }));
+            
+            res.render('events/event-archive', { events: eventsWithRating });
         })
         .catch(error => {
             next(error);
@@ -24,6 +32,29 @@ router.get("/event-archive", secure, (req, res, next) => {
 router.get('/event-create', isLoggedIn, (req, res) => {
     res.render('events/event-create');
   
+  });
+
+  // Ruta para ver un evento específico
+  router.get("/:_id", isLoggedIn,  (req, res, next) => {
+    const { _id } = req.params;
+  
+    HistoricalEvent.findById(_id)
+        .populate('creator', 'username')
+        .populate('comments.author', 'username')  
+        .populate('ratings.user', 'username') 
+        .then(event => {
+            if (!event) {
+                return res.status(404).json({ error: "Event not found" });
+            }
+            
+            const averageRating = calculateAverageRating(event.ratings);
+            const isEventCreator = event.creator.toString() !== req.session.user._id.toString();
+
+            res.render('events/event-single', { event, isEventCreator, averageRating  });
+        })
+        .catch(error => {
+            next(error);
+        });
   });
 
 // Ruta para crear un nuevo evento
@@ -54,28 +85,6 @@ router.post("/create", isLoggedIn, fileUploader.single('image'), (req, res, next
 });
 
 
-// Ruta para ver un evento específico
-router.get("/:id", isLoggedIn,  (req, res, next) => {
-  const { id } = req.params;
-
-  HistoricalEvent.findById(id)
-      .populate('creator', 'username')
-      .populate('comments.author', 'username')  
-      .populate('ratings.user', 'username') 
-      .then(event => {
-          if (!event) {
-              return res.status(404).json({ error: "Event not found" });
-          }
-
-          const averageRating = calculateAverageRating(event.ratings);
-          const isEventCreator = req.user && req.user._id.equals(event.creator._id);
-
-          res.render('events/event-single', { event, isEventCreator, averageRating  });
-      })
-      .catch(error => {
-          next(error);
-      });
-});
 
 
 // Ruta para ver los comentarios de un evento
@@ -138,10 +147,10 @@ router.post("/:id/rating", isLoggedIn, (req, res, next) => {
 
 
 // Ruta para obtener el formulario de edición de un evento
-router.get('/:id/edit', isLoggedIn, (req, res, next) => {
-    const { id } = req.params;
+router.get('/:_id/edit', isLoggedIn, (req, res, next) => {
+    const { _id } = req.params;
 
-    HistoricalEvent.findById(id)
+    HistoricalEvent.findById(_id)
         .then(event => {
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
@@ -158,8 +167,8 @@ router.get('/:id/edit', isLoggedIn, (req, res, next) => {
 });
 
 // Ruta para procesar la actualización de un evento
-router.post('/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
-    const { id } = req.params;
+router.post('/:_id/edit', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
+    const { _id } = req.params;
     const updatedEventData = req.body;
 
     const image = req.file ? req.file.path : undefined;
@@ -167,7 +176,7 @@ router.post('/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, ne
         updatedEventData.image = image;
     }
 
-    HistoricalEvent.findById(id)
+    HistoricalEvent.findById(_id)
         .then(event => {
             if (!event) {
                 return res.status(404).json({ error: "Event not found" });
@@ -201,7 +210,8 @@ router.get('/:id/delete', isLoggedIn, (req, res, next) => {
                 return res.status(404).json({ error: "Event not found" });
             }
             if (event.creator.toString() !== req.session.user._id.toString()) {
-                return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+                 return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+              
             }
             return HistoricalEvent.findByIdAndDelete(id);
         })

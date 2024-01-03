@@ -12,9 +12,6 @@ router.post('/:id/rating', isLoggedIn, (req, res) => {
     const userId = req.session.user._id;
     const value = req.body.value;
 
-      console.log('User ID:', userId);
-    console.log('Rating Value:', value);
-
     function isValidRating(value) {
         const numericValue = parseFloat(value);
         return !isNaN(numericValue) && numericValue >= 1 && numericValue <= 5;
