@@ -67,7 +67,7 @@
 }
 
 
-.form-button-single {
+/* .form-button-single {
     background-color: #6c6ad9;
     color: white;
     padding: 10px 20px;
@@ -79,7 +79,7 @@
 
 .form-button-single:hover {
     background-color: #45a049;
-}
+} */
 .link{
     color: #3498db;
     text-decoration: none;
@@ -89,26 +89,7 @@
 .link:hover {
     text-decoration: underline;
 }
-.star-container-single-hbs {
-display: flex;
-align-items: center;
-}
 
-/* .star-input {
-display: none; 
-} */
-
-.star-label {
-/* width: 40px;
-height: 40px;  */
-background: url('/images/estrella3.png') no-repeat; 
-cursor: pointer;
-background-repeat: no-repeat;
-}
-
-.star-input:checked + .star-label {
-background: url('/images/estrellas.jpg') no-repeat;  
-}
 
 .link-container-single {
     display: flex;
@@ -132,3 +113,31 @@ background: url('/images/estrellas.jpg') no-repeat;
     background-color: #2980b9;
 }
 
+
+.star-container-single-hbs {
+    display: flex;
+    align-items: center;
+}
+
+.star-input {
+    display: none;
+}
+
+.star-label {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.star-label img {
+    width: 100%;
+    height: 100%;
+}
+
+.star-input:checked + .star-label img {
+    content: url('/images/star.png');
+}
+.star-label.filled {
+    background: url('/images/star.png') no-repeat;  
+}

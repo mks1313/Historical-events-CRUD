@@ -106,18 +106,16 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     return;
   }
 
-  // Here we use the same logic as above
-  // - either length based parameters or we check the strength of a password
+
   if (password.length < 6) {
     return res.status(400).render("auth/login", {
       errorMessage: "Your password needs to be at least 6 characters long.",
     });
   }
 
-  // Search the database for a user with the email submitted in the form
   User.findOne({ email })
     .then((user) => {
-      // If the user isn't found, send an error message that user provided wrong credentials
+   
       if (!user) {
         res
           .status(400)
@@ -125,7 +123,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         return;
       }
 
-      // If user is found based on the username, check if the in putted password matches the one saved in the database
+      
       bcrypt
         .compare(password, user.password)
         .then((isSamePassword) => {
@@ -140,7 +138,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             username: user.username,
            
           };
-          // Add the user object to the session object
+          
           req.session.user = user.toObject();
           
           delete req.session.user.password;

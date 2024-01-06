@@ -3,10 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Your Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    {{!-- <link rel="stylesheet" href="/stylesheets/user.css" />  --}}
+
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #80b0e0;
             color: #495057;
         }
 
@@ -44,12 +44,11 @@
         }
 
         .btn-secondary {
-            margin-left: 10px;
+            margin-left: 20px;
+             line-height: 30px;
         }
     </style>
 </head>
-
-<!-- ... (otros encabezados) ... -->
 
 <body class="edituser-body">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-top:1px">
@@ -110,43 +109,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
-<!-- edit profile -->
-{{!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Your Profile</title>
-</head>
-
-<body>
-
-  <section class="container mt-5">
-    <h2 class="mb-4">Edit Your Profile</h2>
-    <form action="/users/editprofile" method="POST" enctype="multipart/form-data">
-
-      <div class="form-group">
-        <label for="username">New username:</label>
-        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}">
-      </div>
-
-      <div class="form-group">
-       <label for="password">New password:</label>
-         <input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" >
-      </div>
-
-      <div class="form-group">
-        <label for="profileImage">New Image of Profile:</label>
-        <input type="file" class="form-control-file" id="profileImage" name="profileImage" value="{{ user.profileImage }}">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Save Changes</button>
-      <a class="btn btn-secondary text-center" href="/users/profile">Discard</a>
-
-    </form>
-  </section>
-
-</body>
-
-</html> --}}
