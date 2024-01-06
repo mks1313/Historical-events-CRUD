@@ -41,7 +41,6 @@ router.post('/:id/rating', isLoggedIn, (req, res) => {
             return event.save();
         })
         .then(() => {
-            // Devuelve una respuesta
             req.flash('successMessage', 'Interaction added successfully');
             const rutaRedireccion = `/events/${eventId}`;
             res.redirect(rutaRedireccion);

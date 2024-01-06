@@ -15,7 +15,6 @@ router.get("/profile", isLoggedIn, (req, res) => {
     console.log('User from session:', user);
     HistoricalEvent.countDocuments({ creator: user })
         .then(eventCount => {
-            // Obtén otros datos del usuario como lo necesites
             return User.findById(user)
                 .then(userData => {
                     // console.log(userData);

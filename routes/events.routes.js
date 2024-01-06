@@ -7,6 +7,8 @@ const helpers = require('../config/helpers');
 const secure = require('../middleware/secure')
 const {calculateAverageRating } = require('../config/helpers');
 
+
+
 // Ruta para obtener todos los eventos
 router.get("/event-archive", secure, (req, res, next) => {
     HistoricalEvent.find()
@@ -157,9 +159,11 @@ router.get('/:_id/edit', isLoggedIn, (req, res, next) => {
             }
             if (event.creator.toString() !== req.session.user._id.toString()) {
                 return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+            } else {
+                res.render('events/event-edit', event);
+
             }
 
-            res.render('events/event-edit', event);
         })
         .catch(error => {
             next(error);
@@ -183,6 +187,8 @@ router.post('/:_id/edit', isLoggedIn, fileUploader.single('image'), (req, res, n
             }
             if (event.creator.toString() !== req.session.user._id.toString()) {
                 return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
+                // const errorMessage = "Unauthorized: You are not the owner of this event";
+                // return res.render('events/event/:_id', { errorMessage });
             }
             return HistoricalEvent.findByIdAndUpdate(id, updatedEventData, { new: true });
         })
