@@ -12,7 +12,7 @@ const { HistoricalEvent, Comment, Rating }  = require("../models/HistoricalEvent
 
 router.get("/profile", isLoggedIn, (req, res) => {
     const user = req.session.user; 
-    console.log('User from session:', user);
+    // console.log('User from session:', user);
     HistoricalEvent.countDocuments({ creator: user })
         .then(eventCount => {
             return User.findById(user)
