@@ -190,7 +190,7 @@ router.post('/:_id/edit', isLoggedIn, fileUploader.single('image'), (req, res, n
                 // const errorMessage = "Unauthorized: You are not the owner of this event";
                 // return res.render('events/event/:_id', { errorMessage });
             }
-            return HistoricalEvent.findByIdAndUpdate(id, updatedEventData, { new: true });
+            return HistoricalEvent.findByIdAndUpdate(_id, updatedEventData, { new: true });
         })
         .then(updatedEvent => {
             if (!updatedEvent) {
