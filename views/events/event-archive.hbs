@@ -1,52 +1,58 @@
 <body class="bodyArchive-archive">
   <div class="events-container-archive">
     <nav class="user-navigation-archive">
-     <ul>
-  <li>
-    {{#if isLoggedIn}}
-      <a href="/users/profile">Back to your profile</a> | <a href="/events/event-create">Create new Event ✍🏻👨🏻‍💻</a>
-    {{else}}
-      <a href="/auth/login">Login</a> | <a href="/auth/signup">Signup</a> | <a href="/">Home Page</a>
-    {{/if}}
-  </li>
-</ul>
+      <ul>
+        <li>
+          {{#if isLoggedIn}}
+            <a href="/users/profile">Back to your profile</a>
+            |
+            <a href="/events/event-create">Create new Event ✍🏻👨🏻‍💻</a>
+          {{else}}
+            <a href="/auth/login">Login</a>
+            |
+            <a href="/auth/signup">Signup</a>
+            |
+            <a href="/">Home Page</a>
+          {{/if}}
+        </li>
+      </ul>
     </nav>
     <h1 class="archive">All Events here!</h1>
     <div class="event-cards-container-archive">
       {{#each events}}
         <div class="event-card-archive">
-          <a href="/events/{{ _id }}">
-            <div class="event-card-image-archive" style="background-image: url('{{ image }}');"></div>
+          <a href="/events/{{_id}}">
+            <div
+              class="event-card-image-archive"
+              style="background-image: url('{{image}}');"
+            ></div>
             <div class="event-card-title-archive">
-              {{ title }}
+              {{title}}
             </div>
             <div class="event-card-creator-archive">
-              Created by: {{ creator.username }}
+              Created by:
+              {{creator.username}}
 
             </div>
-               <div class="event-card-rating-archive">
-                Rating: {{ averageRating.average }} ({{ averageRating.count }} rates)
-                </div>
+            <div class="event-card-rating-archive">
+              Rating:
+              {{averageRating.average}}
+              ({{averageRating.count}}
+              rates)
+            </div>
 
             <div class="event-card-comments-archive">
-              Comments: {{ this.comments.length }}
+              Comments:
+              {{this.comments.length}}
             </div>
           </a>
         </div>
       {{/each}}
     </div>
-    <a href="/events/event-archive" id="back-to-top" title="Go to Top">&#9650; Top</a>
+    <a href="/events/event-archive" id="back-to-top" title="Go to Top">&#9650;
+      Top</a>
 
   </div>
   <script src="/js/scroll.js"></script>
 
 </body>
-
-
-
-
-
-
-
-
-

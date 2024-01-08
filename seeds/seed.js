@@ -11,7 +11,7 @@
 //     console.error('Error de conexión a MongoDB:', err);
 // });
 
-// // Define Datos de Prueba
+
 // const historicalEventsData = [
 //     {
 //         title: "Descubrimiento de América",

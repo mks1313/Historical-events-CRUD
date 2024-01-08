@@ -13,15 +13,16 @@
             <p>{{ event.location }}</p>
 
             <label class="label-single">Links:</label>
-             <a href="{{event.links}}" class="link">{{event.links}}</a>
+             <a href="{{event.links}}" class="link" target="_blank">{{event.links}}</a>
 
             <label class="label-single">Notable Characters:</label>
             <p>{{ event.notableCharacters }}</p>
             <!-- Enlaces -->
                      <div class="link-container-single">
-   
+                        {{#if canEdit}}
                          <a href="/events/{{ event.id }}/delete" class="link-single">Delete</a>
                          <a href="/events/{{ event.id }}/edit" class="link-single">Edit</a>
+                        {{/if}}
                          <a href="/events/event-archive" class="link-single">Back</a>
                     </div> 
                                                             

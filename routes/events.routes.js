@@ -18,13 +18,13 @@ router.get("/event-archive", secure, (req, res, next) => {
         // .then(allEvents => {
         //     res.render('events/event-archive', { events: allEvents });
         // })
-        .then(allEvents => {
-            const eventsWithRating = allEvents.map(event => ({
-                ...event.toObject(),
-                averageRating: helpers.calculateAverageRating(event.ratings)
-            }));
-            
-            res.render('events/event-archive', { events: eventsWithRating });
+                .then(allEvents => {
+                    const eventsWithRating = allEvents.map(event => ({
+                        ...event.toObject(),
+                        averageRating: helpers.calculateAverageRating(event.ratings)
+                    }));
+                    
+                    res.render('events/event-archive', { events: eventsWithRating });
         })
         .catch(error => {
             next(error);
@@ -34,25 +34,26 @@ router.get("/event-archive", secure, (req, res, next) => {
 router.get('/event-create', isLoggedIn, (req, res) => {
     res.render('events/event-create');
   
-  });
+});
 
-  // Ruta para ver un evento específico
-  router.get("/:_id", isLoggedIn,  (req, res, next) => {
+// Ruta para ver un evento específico
+router.get("/:_id", isLoggedIn,  (req, res, next) => {
     const { _id } = req.params;
-  
+
     HistoricalEvent.findById(_id)
-        .populate('creator', 'username')
-        .populate('comments.author', 'username')  
-        .populate('ratings.user', 'username') 
+    .populate('creator', 'username')
+    .populate('comments.author', 'username')  
+    .populate('ratings.user', 'username') 
+    
         .then(event => {
-            if (!event) {
-                return res.status(404).json({ error: "Event not found" });
-            }
             
+             const canEdit = event.creator._id.toString() === req.session.user._id;
+            //  console.log(event.creator.toString());
+            // const canEdit = true;
             const averageRating = calculateAverageRating(event.ratings);
             const isEventCreator = event.creator.toString() !== req.session.user._id.toString();
 
-            res.render('events/event-single', { event, isEventCreator, averageRating  });
+            res.render('events/event-single', { event, isEventCreator, averageRating, canEdit  });
         })
         .catch(error => {
             next(error);
@@ -187,8 +188,7 @@ router.post('/:_id/edit', isLoggedIn, fileUploader.single('image'), (req, res, n
             }
             if (event.creator.toString() !== req.session.user._id.toString()) {
                 return res.status(403).json({ error: "Unauthorized: You are not the owner of this event" });
-                // const errorMessage = "Unauthorized: You are not the owner of this event";
-                // return res.render('events/event/:_id', { errorMessage });
+            
             }
             return HistoricalEvent.findByIdAndUpdate(_id, updatedEventData, { new: true });
         })
