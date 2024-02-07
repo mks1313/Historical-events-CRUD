@@ -1,4 +1,3 @@
-// rating.js
 const express = require('express');
 const router = express.Router();
 const { HistoricalEvent, Comment, Rating }  = require("../models/HistoricalEvent.model");
@@ -41,7 +40,6 @@ router.post('/:id/rating', isLoggedIn, (req, res) => {
             return event.save();
         })
         .then(() => {
-            req.flash('successMessage', 'Interaction added successfully');
             const rutaRedireccion = `/events/${eventId}`;
             res.redirect(rutaRedireccion);
         })

@@ -17,6 +17,7 @@ router.get('/:id/event-comments', isLoggedIn, (req, res, next) => {
             res.render('events/event-comments', { event });
         })
         .catch(error => {
+            next(error);
             res.status(500).json({ error: "Internal Server Error" });
         });
 });
@@ -28,13 +29,9 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     const { userId, content, value } = req.body;
     
     HistoricalEvent.findById(eventId)
-        .populate('comments.author', 'username') 
-        // .populate('ratings.user', 'username')  
+        .populate('comments.author', 'username')  
         .then(event => {
 
-            if (!event) {
-                return res.status(404).json({ error: "Event not found" });
-            }
             if (content) {
                 event.comments.push({ author: userId, content });
             }
@@ -44,11 +41,9 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
             return event.save();
         })
         .then(updatedEvent => {
-            // res.status(201).json({ message: "Interacción agregada correctamente", updatedEvent });
-
-            req.flash('successMessage', 'Interaction added successfully');
+           
             const rutaRedireccion = `/events/${eventId}`;
-            res.redirect(rutaRedireccion);
+            res.redirect(rutaRedireccion, updatedEvent);
         })
         .catch(error => {
             next(error);

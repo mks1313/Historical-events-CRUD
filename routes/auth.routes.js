@@ -44,7 +44,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   }
   
   //   ! This regular expression checks password for special characters and minimum length
-  /*
+  
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (!regex.test(password)) {
     res
@@ -54,14 +54,14 @@ router.post("/signup", isLoggedOut, (req, res) => {
     });
     return;
   }
-  */
+  
  
- // Create a new user - start by hashing the password
+ 
  bcrypt
  .genSalt(saltRounds)
  .then((salt) => bcrypt.hash(password, salt))
  .then((hashedPassword) => {
-   // Create a user and save it in the database
+  
    return User.create({ username, email, profileImage, password: hashedPassword });
   })
   .then((user) => {
@@ -82,15 +82,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
 });
 
 // GET /auth/login
-//router.get("/login", isLoggedOut, (req, res) => {
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
 
-// router.get('/user-profile', isLoggedIn, (req, res) => {
-//   res.render('user/user-profile');
-
-// });
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {
@@ -150,7 +145,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// GET /auth/logout
+//  /auth/logout
 router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {

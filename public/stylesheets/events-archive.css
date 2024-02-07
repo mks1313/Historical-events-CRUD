@@ -9,10 +9,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-    /* background-image: url('/images/bg-event-archive.jpg'); */
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;  */
     background-color: rgb(122, 173, 234);
     color: #444; 
   }
@@ -35,7 +31,7 @@
     
     .event-card-archive {
 
-        background-color: #FF6F61;
+        background-color: #726df0;
         width: 300px;
         margin: 20px;
         overflow: hidden;
@@ -73,7 +69,7 @@
     .event-card-creator-archive {
         padding: 10px;
         text-align: center;
-        color: #1976D2; 
+        color: #0c1013; 
         font-size: 18px;
         font-weight: bold;
     }
@@ -81,13 +77,13 @@
     .event-card-rating-archive {
         padding: 10px;
         text-align: center;
-        color: #42a458; 
+        color: #080a09; 
     }
     
     .event-card-comments-archive {
         padding: 10px;
         text-align: center;
-        color: #1976D2; 
+        color: #0e0e0f; 
     }
     
     .h1-archive {
