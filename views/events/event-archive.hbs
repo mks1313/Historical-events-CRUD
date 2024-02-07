@@ -18,6 +18,15 @@
       </ul>
     </nav>
     <h1 class="archive">All Events here!</h1>
+    <form action="/events/search" method="GET">
+      <input
+        id="myInput"
+        type="text"
+        name="query"
+        placeholder="Search events..."
+      />
+      <button class="link-single" type="submit">Search</button>
+    </form>
     <div class="event-cards-container-archive">
       {{#each events}}
         <div class="event-card-archive">
