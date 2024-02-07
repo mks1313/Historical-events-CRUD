@@ -80,8 +80,12 @@ app.use("/comments", commentsRoutes);
 const ratingRoutes = require("./routes/rating.routes");
 app.use("/rating", ratingRoutes);
 
+const searchRoutes = require("./routes/search.routes");
+app.use("/search", searchRoutes);
+
 const eventsRoutes = require("./routes/events.routes");
 app.use("/events", eventsRoutes);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

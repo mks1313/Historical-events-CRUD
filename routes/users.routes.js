@@ -4,7 +4,11 @@ const bcrypt = require("bcrypt");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
 const User = require("../models/User.model");
-const { HistoricalEvent, Comment, Rating,} = require("../models/HistoricalEvent.model");
+const {
+  HistoricalEvent,
+  Comment,
+  Rating,
+} = require("../models/HistoricalEvent.model");
 
 // RUTA DE PERFIL
 
@@ -17,8 +21,8 @@ router.get("/profile", isLoggedIn, (req, res) => {
         res.render("users/user-profile", { user: userData, eventCount });
       });
     })
-    .catch(error => {
-        next(error);
+    .catch((error) => {
+      next(error);
     });
 });
 
@@ -56,9 +60,9 @@ router.post(
 
         res.redirect("/users/profile");
       })
-      .catch(error => {
+      .catch((error) => {
         next(error);
-    });
+      });
   }
 );
 
