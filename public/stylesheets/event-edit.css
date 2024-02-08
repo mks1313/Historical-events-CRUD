@@ -5,9 +5,11 @@
 }
 
 .background-container-edit {
-    background-image: url("/images/fondo-edit.jpg");
-    padding: 20px;
+    background-image: url("/images/norway.jpg");
+    background-size: cover; 
+    background-position: center;
     height: 100vh; 
+    width: 100%;
     box-sizing: border-box; 
     display: flex;
     justify-content: center;
