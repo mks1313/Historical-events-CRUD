@@ -11,16 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "functions": {
-    "myFunction": {
-      "runtime": "@vercel/node",
-      "memory": 1024
-    }
-  },
-  "install": {
-    "include": [
-      "package.json"
-    ]
-  }
+  ]
 }
