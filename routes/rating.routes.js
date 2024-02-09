@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { HistoricalEvent, Comment, Rating }  = require("../models/HistoricalEvent.model");
-const User = require("../models/User.model");
+// const User = require("../models/User.model");
 const isLoggedIn = require('../middleware/isLoggedIn');
 const mongoose = require('mongoose');
 
-// Ruta para agregar valoraciones a un evento
+
 router.post('/:id/rating', isLoggedIn, (req, res) => {
     const eventId = req.params.id;
     const userId = req.session.user._id;
