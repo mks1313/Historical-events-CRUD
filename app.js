@@ -29,7 +29,6 @@ require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "HISTORY SITE....";
-const browserSync = require("browser-sync");
 
 app.use(flash());
 
@@ -50,13 +49,6 @@ app.use(express.static('public'));
 
 app.locals.appTitle = `${capitalize(projectName)} Historical Events by Maksim`
 
-if (process.env.NODE_ENV === 'development') {
-browserSync({
-    proxy: "http://localhost:3000", 
-    files: ['public', 'views', 'views/**/*'], 
-    open: false
-  });
-}
 
 app.use(session({
   secret: 'tu_secreto',

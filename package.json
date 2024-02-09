@@ -24,10 +24,9 @@
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
     "serve-favicon": "^2.5.0",
-    "vercel": "^33.0.2"
+    "vercel": "^33.4.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.29.3",
     "nodemon": "^3.0.2"
   }
 }
