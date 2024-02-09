@@ -1,6 +1,6 @@
 var canvas = document.getElementById('backgroundCanvas');
 var ctx = canvas.getContext('2d');
-var width = canvas.width = window.innerWidth * 2; // Ajusta según sea necesario
+var width = canvas.width = window.innerWidth * 2; 
 var height = canvas.height = window.innerHeight * 2;
 
 

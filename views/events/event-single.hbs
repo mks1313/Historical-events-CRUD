@@ -1,91 +1,104 @@
- {{!-- event-single.hbs --}}
+{{! event-single.hbs }}
 <div class="container-single-event">
-    <h1 class="h1-single">{{ event.title }}</h1>
-    <div class="content-wrapper">
-        <div class="event-details">
-            <label class="label-single">Created by:</label>
-            <p>{{ event.creator.username }}</p>
-            
-            <label class="label-single">Date:</label>
-            <p>{{ event.date }}</p>
+  <h1 class="h1-single">{{event.title}}</h1>
+  <div class="content-wrapper">
+    <div class="event-details">
+      <label class="label-single">Created by:</label>
+      <p>{{event.creator.username}}</p>
 
-            <label class="label-single">Location:</label>
-            <p>{{ event.location }}</p>
+      <label class="label-single">Date:</label>
+      <p>{{formattedDate}}</p>
 
-            <label class="label-single">Links:</label>
-             <a href="{{event.links}}" class="link" target="_blank">{{event.links}}</a>
+      <label class="label-single">Location:</label>
+      <p>{{event.location}}</p>
 
-            <label class="label-single">Notable Characters:</label>
-            <p>{{ event.notableCharacters }}</p>
-            <!-- Enlaces -->
-                     <div class="link-container-single">
-                        {{#if canEdit}}
-                         <a href="/events/{{ event.id }}/delete" class="link-single">Delete</a>
-                         <a href="/events/{{ event.id }}/edit" class="link-single">Edit</a>
-                        {{/if}}
-                         <a href="/events/event-archive" class="link-single">Back</a>
-                    </div> 
-                                                            
-        </div>
+      <label class="label-single">Links:</label>
+      <a href="{{event.links}}" class="link" target="_blank">{{event.links}}</a>
 
-        <div class="event-media">
-            <img src="{{ event.image }}" alt="imagen" class="event-image">
+      <label class="label-single">Notable Characters:</label>
+      <p>{{event.notableCharacters}}</p>
+      <!-- Enlaces -->
+      <div class="link-container-single">
+        {{#if canEdit}}
+          <a href="/events/{{event.id}}/delete" class="link-single">Delete</a>
+          <a href="/events/{{event.id}}/edit" class="link-single">Edit</a>
+        {{/if}}
+        <a href="/events/event-archive" class="link-single">Back</a>
+      </div>
 
-
-            <!-- Formulario para valoración -->
-            <form action="/rating/{{ event._id }}/rating" method="POST" class="form-container">
-                       <input type="hidden" name="userId" value="{{ userId }}">
-                         <h2> <label for="rating" class="form-label-single">Rate this event:</label></h2>
-                         {{!-- estrellas --}}
-                          <div class="star-container-single-hbs" id="star-container">
-                              <input type="radio" id="star1" name="value" value="1" class="star-input">
-                              <label for="star1" title="1 star" class="star-label"><img src="/images/stars.png" alt="Star"></label>
-
-                                <input type="radio" id="star2" name="value" value="2" class="star-input">
-                                 <label for="star2" title="2 stars" class="star-label"><img src="/images/stars.png" alt="Star"></label>
-
-                                <input type="radio" id="star3" name="value" value="3" class="star-input">
-                                <label for="star3" title="3 stars" class="star-label"><img src="/images/stars.png" alt="Star"></label>
-
-                                <input type="radio" id="star4" name="value" value="4" class="star-input">
-                                <label for="star4" title="4 stars" class="star-label"><img src="/images/stars.png" alt="Star"></label>
-
-                                <input type="radio" id="star5" name="value" value="5" class="star-input">
-                               <label for="star5" title="5 stars" class="star-label"><img src="/images/stars.png" alt="Star"></label>
-                          </div>
-
-
-
-                   <button type="submit" class="link-single">Submit Rating</button>
-            </form>
-
-
-            <!-- Muestra la valoración promedio -->
-                <div class="star-container-single">
-                     Rating: {{averageRating.average}} ({{averageRating.count}} votes)
-                </div>
-        </div>
-
-        <div class="event-description">
-            <strong><p class="description-single">{{ event.description }}</p></strong>
-
-            <!-- Formulario para comentarios -->
-            <form action="/events/{{ event._id }}/comments" method="POST" class="form-container">
-                <label for="comment" class="form-label-single">Leave a comment: ⬇️ ⬇️ </label>
-         
-                <textarea id="comment-single" name="content" rows="4" cols="50" class="form-textarea"></textarea>
-                <button type="submit" class="link-single">Submit Comment</button>
-                 <a href="/comments/{{ event._id }}/event-comments" class="link-single" style="margin-left: 30px;">View Comments: {{ event.comments.length }}</a>
-            </form>
-
-
-        </div>
     </div>
+
+    <div class="event-media">
+      <img src="{{event.image}}" alt="imagen" class="event-image" />
+
+      <!-- Formulario para valoración -->
+      <form
+        action="/rating/{{event._id}}/rating"
+        method="POST"
+        class="form-container"
+      >
+        <input type="hidden" name="userId" value="{{userId}}" />
+        <h2>
+          <label for="rating" class="form-label-single">Rate this event:</label>
+        </h2>
+   
+      <div class="star-container-single-hbs" id="star-container">
+  <input type="radio" id="star1" name="value" value="1" class="star-input">
+  <label for="star1" class="star-label">☆</label>
+
+  <input type="radio" id="star2" name="value" value="2" class="star-input">
+  <label for="star2" class="star-label">☆</label>
+
+  <input type="radio" id="star3" name="value" value="3" class="star-input">
+  <label for="star3" class="star-label">☆</label>
+
+  <input type="radio" id="star4" name="value" value="4" class="star-input">
+  <label for="star4" class="star-label">☆</label>
+
+  <input type="radio" id="star5" name="value" value="5" class="star-input">
+  <label for="star5" class="star-label">☆</label>
 </div>
- <script src="/js/rating.js"></script>
- 
 
+        <button type="submit" class="link-single">Submit Rating</button>
+      </form>
 
+      <!-- Muestra la valoración promedio -->
+      <div class="star-container-single">
+        Rating:
+        {{averageRating.average}}
+        ({{averageRating.count}}
+        votes)
+      </div>
+    </div>
 
+    <div class="event-description">
+      <strong><p class="description-single">{{event.description}}</p></strong>
 
+      <!-- Formulario para comentarios -->
+      <form
+        action="/events/{{event._id}}/comments"
+        method="POST"
+        class="form-container"
+      >
+        <label for="comment" class="form-label-single">Leave a comment: ⬇️ ⬇️
+        </label>
 
+        <textarea
+          id="comment-single"
+          name="content"
+          rows="4"
+          cols="50"
+          class="form-textarea"
+        ></textarea>
+        <button type="submit" class="link-single">Submit Comment</button>
+        <a
+          href="/comments/{{event._id}}/event-comments"
+          class="link-single"
+          style="margin-left: 30px;"
+        >View Comments: {{event.comments.length}}</a>
+      </form>
+
+    </div>
+  </div>
+</div>
+<script src="/js/rating.js"></script>

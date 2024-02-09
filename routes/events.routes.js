@@ -10,6 +10,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const helpers = require("../config/helpers");
 const secure = require("../middleware/secure");
 const { calculateAverageRating } = require("../config/helpers");
+const { formatDate } = require("../config/dateHelper"); 
 
 // Ruta para obtener todos los eventos
 router.get("/event-archive", secure, (req, res, next) => {
@@ -46,8 +47,9 @@ router.get("/:_id", isLoggedIn, (req, res, next) => {
     .then((event) => {
       const canEdit = event.creator._id.toString() === req.session.user._id;
       const averageRating = calculateAverageRating(event.ratings);
+      const formattedDate = formatDate(event.date);
 
-      res.render("events/event-single", { event, averageRating, canEdit });
+      res.render("events/event-single", { event, averageRating, canEdit, formattedDate  });
     })
     .catch((error) => {
       next(error);
