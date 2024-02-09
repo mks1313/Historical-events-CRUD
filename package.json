@@ -10,7 +10,6 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.2",
-    "browser-sync-ui": "^2.29.3",
     "cloudinary": "^1.41.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^5.1.0",
@@ -28,7 +27,6 @@
     "vercel": "^33.4.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.29.3",
     "nodemon": "^3.0.2"
   }
 }
