@@ -35,6 +35,7 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     .then((event) => {
       if (content) {
         event.comments.push({ author: userId, content });
+         return Comment.create({ author: userId, content });
       }
       if (value) {
         event.ratings.push({ user: userId, value });

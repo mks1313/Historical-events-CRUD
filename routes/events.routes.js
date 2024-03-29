@@ -45,6 +45,7 @@ router.get("/:_id", isLoggedIn, (req, res, next) => {
     .populate("ratings.user", "username")
 
     .then((event) => {
+      // console.log(event); AVERIGUAR EL ERROR, MAS TARDE
       const canEdit = event.creator._id.toString() === req.session.user._id;
       const averageRating = calculateAverageRating(event.ratings);
       const formattedDate = formatDate(event.date);
@@ -99,6 +100,7 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
       }
       if (content) {
         event.comments.push({ author: userId, content });
+        // return Comment.create({ author: userId, content }); VER COMO SOLUCIONAR!!!!
       }
 
       return event.save();

@@ -1,5 +1,6 @@
 .container-single-event {
-  background-color: rgba(126, 11, 11, 0.3);
+  background-image: url('/images/bg-event-archive.jpg');
+  background-size: cover;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   min-height: 100vh;
@@ -63,7 +64,7 @@
   margin-bottom: 10px;
 }
 .link {
-  color: #3498db;
+  color: #0c0f11;
   text-decoration: none;
   padding: 5px 10px;
   display: inline-block;
@@ -82,7 +83,7 @@
 .link-single {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #072132;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -92,7 +93,7 @@
 }
 
 .link-single:hover {
-  background-color: #2980b9;
+  background-color: #b12074;
 }
 
 .star-container-single-hbs {

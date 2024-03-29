@@ -1,4 +1,3 @@
-// historicalEvent.js
 const { Schema, model } = require("mongoose");
 const defaultImage = "/images/event-default.jpg";
 

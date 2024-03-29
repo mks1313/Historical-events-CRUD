@@ -20,7 +20,7 @@
   
   
   .event-cards-container-archive {
-    background-image: url('/images/bg-event-archive.jpg');
+    background-color: rgb(122, 173, 234);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 

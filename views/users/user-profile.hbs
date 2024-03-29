@@ -1,46 +1,47 @@
-
 <head>
  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .userprofile {
-      background-color: #80b0e0;
-      color: #495057;
+    body {
+      background: linear-gradient(to bottom, #4a90e2, #1e6ad0);
+      height: 100%;
+    }
+
+    .navbar {
+      background-color: rgba(52, 58, 64, 0.9); 
+    }
+
+    .navbar-brand {
+      color: #ffffff;
+    }
+
+    .user-info {
+      background-image: url("https://cdn.pixabay.com/photo/2016/03/15/02/42/floor-1256804_1280.jpg");
+      color: whitesmoke;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .profile-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+      max-width: 200px;
+      height: 200px;
+      border-radius: 50%;
     }
-    .navbar {
-            background-color: #343a40;
-        }
-
-        .navbar-dark .navbar-toggler-icon {
-            background-color: #ffffff;
-        }
-
-        .navbar-dark .navbar-toggler:focus, .navbar-dark .navbar-toggler:hover {
-            background-color: #ffffff;
-        }
-        .container-edituser {
-          margin-left: 400px;
-          
-        }
   </style>
 </head>
-<body class="userprofile">
-   <nav class="navbar navbar-expand-lg navbar-dark" style="margin-right: 0px;margin-bottom: 0px;padding-top: 1px">
-        <div class="container-edituser">
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/users/editprofile"> Edit Profile</a>
                     </li>
@@ -50,9 +51,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/events/event-create">Create new Event</a>
                     </li>
-                    <li class="nav-item ml-auto">
+                    <li class="nav-item">
                       <form action="/auth/logout" method="POST">
                         <button type="submit" class="btn btn-danger">Logout</button>
+                      </form>
                     </li>
                 </ul>
             </div>
@@ -60,26 +62,23 @@
     </nav>
 
 
-<div class="container">
+<div class="container mt-5">
   <div id="user" class="text-center">
-    <h1 class="display-4">¡Welcome, {{ user.username }}!</h1>
+    <h1 class="display-4 mb-4">¡Welcome, {{ user.username }}!</h1>
 
-    <div class="card mt-4">
-      <div class="row no-gutters">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Informatión:</h5>
-            <p class="card-text"><strong>Name:</strong> {{ user.username }}</p>
-            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-            <h5><strong>Events created:</strong> {{ eventCount }}</h5>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="user-info" style="height: 400px; border: 10px solid #ccc; border-radius: 15px;">
+          <div class="text-center mb-4">
+            {{#if user.profileImage}}
+              <img src="{{ user.profileImage }}" alt="Profile Image" class="profile-image">
+            {{else}}
+              <img src="/images/user-default.png" alt="Default Profile Image" class="profile-image">
+            {{/if}}
           </div>
-        </div>
-        <div class="col-md-4">
-          {{#if user.profileImage}}
-            <img src="{{ user.profileImage }}" alt="Imagen de Perfil" class="card-img profile-image">
-          {{else}}
-            <img src="/images/user-default.png" alt="Imagen de Perfil Predeterminada" class="card-img profile-image">
-          {{/if}}
+          <h5 class="mb-3"><strong>Name:</strong> {{ user.username }}</h5>
+          <p class="mb-3"><strong>Email:</strong> {{ user.email }}</p>
+          <h5 class="mb-3"><strong>Events created:</strong> {{ eventCount }}</h5>
         </div>
       </div>
     </div>
@@ -91,4 +90,5 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+
+

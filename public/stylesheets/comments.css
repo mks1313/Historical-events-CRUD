@@ -10,7 +10,7 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #d7e7b5;
+    background-color: rgb(149, 193, 247);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -23,11 +23,11 @@
   }
   
   .comment-comments:nth-child(odd) {
-    background-color: #eee0e0; 
+    background-color: #5975e5; 
   }
   
   .comment-comments:nth-child(even) {
-    background-color: #e2b1b1; 
+    background-color: #1b6eea; 
   }
   
   .comment-comments {
