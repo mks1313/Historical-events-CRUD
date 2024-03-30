@@ -15,6 +15,7 @@
   margin-bottom: 10px;
   color: #7b5e5e;
   text-align: center;
+  text-decoration: underline;
 }
 
 .content-wrapper {
@@ -45,6 +46,7 @@
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  border: 10px solid #160404;
 }
 
 .event-description {
