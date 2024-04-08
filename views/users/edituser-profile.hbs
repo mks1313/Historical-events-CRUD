@@ -4,26 +4,17 @@
     <title>Edit Your Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-
-
     <style>
         body {
             background-color: #80b0e0;
             color: #495057;
+            padding-top: 60px; 
         }
 
         .navbar {
             background-color: #343a40;
-            padding-top: 20px;
-        }
-
-        .navbar-dark .navbar-toggler-icon {
-            background-color: #ffffff;
-        }
-
-        .navbar-dark .navbar-toggler:focus,
-        .navbar-dark .navbar-toggler:hover {
-            background-color: #ffffff;
+            padding-top: 10px; 
+            padding-bottom: 10px;
         }
 
         .container-edituser {
@@ -34,11 +25,11 @@
         }
 
         .mt-5 {
-            margin-top: 3rem !important;
+            margin-top: 1.5rem !important;
         }
 
         .mb-4 {
-            margin-bottom: 2rem !important;
+            margin-bottom: 1rem !important;
         }
 
         .form-control-file {
@@ -46,14 +37,13 @@
         }
 
         .btn-secondary {
-            margin-left: 20px;
-             line-height: 30px;
+            margin-left: 10px;
+            line-height: 24px;
         }
     </style>
 </head>
-
 <body class="edituser-body">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-top:1px">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> 
         <div class="container-edituser">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,8 +70,8 @@
         </div>
     </nav>
 
-    <section class="container mt-5">
-        <h2 class="mb-4">Edit Your Profile</h2>
+    <section class="container mt-4"> 
+        <h2 class="mb-3">Edit Your Profile</h2>
         <form action="/users/editprofile" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
@@ -101,7 +91,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Save Changes</button>
-            <a class="btn btn-secondary text-center" href="/users/profile">Discard</a>
+            <a class="btn btn-secondary" href="/users/profile">Discard</a>
 
         </form>
     </section>
@@ -110,4 +100,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
+
 

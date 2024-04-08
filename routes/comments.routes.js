@@ -25,7 +25,6 @@ router.get("/:id/event-comments", isLoggedIn, (req, res, next) => {
     });
 });
 
-// Ruta para agregar comentarios y valoraciones a un evento
 router.post("/:id/comments", isLoggedIn, (req, res, next) => {
   const eventId = req.params.id;
   const { userId, content, value } = req.body;

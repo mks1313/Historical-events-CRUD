@@ -20,6 +20,8 @@
 
 .content-wrapper {
   display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
 }
 
 .event-details {
@@ -101,8 +103,8 @@
 .star-container-single-hbs {
   display: flex;
   align-items: center;
-  margin-left: 90px; 
-  padding-left: 30px; 
+  justify-content: center; 
+  padding: 20px; 
 }
 
 .star-input {
@@ -120,5 +122,22 @@
 .star-input:hover + .star-label {
   color: rgb(240, 240, 67);
 }
+
+@media only screen and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; 
+  }
+
+  .event-details,
+  .event-media,
+  .event-description {
+    padding: 10px; 
+  }
+
+  .star-container-single-hbs {
+    margin-left: 0; 
+  }
+}
+
 
 

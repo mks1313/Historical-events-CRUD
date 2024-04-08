@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{pageTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/login.css">
-  <style>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <style>
         body {
             margin: 0;
             padding: 0;
@@ -14,14 +16,11 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color:rgb(25, 15, 15); 
-             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-              line-height: 1.3;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
         }
 
         .page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 20px;
         }
 
@@ -36,7 +35,7 @@
             font-size: 1em;
         }
 
-         .back-link {
+        .back-link {
             margin-top: 20px;
             text-align: center;
             text-decoration: none;
@@ -46,14 +45,13 @@
             border-radius: 8px;
             width: 100px;
             display: inline-block;
-            
         }
-         .back-link:hover {
+
+        .back-link:hover {
             background-color: #3e82da;
-          } 
+        } 
 
         .page-content {
-            width: 80%;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -76,111 +74,114 @@
             font-size: 1.3em;
             margin-top: 15px;
         }
+
         .move-right-up {
-             position: absolute;
-             top: 20px;
-             right: 20px; 
-              display: inline-block;
-              padding: 15px;
+            position: absolute;
+            top: 20px;
+            right: 20px; 
+            display: inline-block;
+            padding: 15px;
         }
+
         #language-selector {
             position: absolute;
-             top: 20px;
-             left: 20px; 
-             background-color: var(--blue);
-             border-radius: 12px;
-             color: #fff;
+            top: 20px;
+            left: 20px; 
+            background-color: var(--blue);
+            border-radius: 12px;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .page-content {
+                width: 90%;
+            }
         }
     </style>
-    
 </head>
 <body class="page">
-        <select id="language-selector">
-            <option value="spanish">Español</option>
-            <option value="english">English</option>
-            <option value="catalan">Català</option>
-        </select>
+    <select id="language-selector">
+        <option value="spanish">Español</option>
+        <option value="english">English</option>
+        <option value="catalan">Català</option>
+    </select>
     <a href="/" class="btn move-right-up">Back</a>
     <div class="page-content typing-animation" id="spanish">
-      
-<div >
-   <strong>¡Bienvenido a nuestro apasionante proyecto de Plataforma de Eventos Históricos! Estamos emocionados de tenerte aquí, explorando un mundo fascinante de conocimiento y aprendizaje a través de los grandes momentos que han dado forma a la historia.</strong>
-</div>
+        <div>
+            <strong>¡Bienvenido a nuestro apasionante proyecto de Plataforma de Eventos Históricos! Estamos emocionados de tenerte aquí, explorando un mundo fascinante de conocimiento y aprendizaje a través de los grandes momentos que han dado forma a la historia.</strong>
+        </div>
 
-<h3>Nuestra Misión:</h3>
-<p>En la Plataforma de Eventos Históricos, nos dedicamos a compartir y celebrar la riqueza de nuestra historia colectiva. Nuestra misión es proporcionar un espacio donde la comunidad pueda sumergirse en eventos históricos significativos, aprender de ellos y compartir sus propios conocimientos.</p>
+        <h3>Nuestra Misión:</h3>
+        <p>En la Plataforma de Eventos Históricos, nos dedicamos a compartir y celebrar la riqueza de nuestra historia colectiva. Nuestra misión es proporcionar un espacio donde la comunidad pueda sumergirse en eventos históricos significativos, aprender de ellos y compartir sus propios conocimientos.</p>
 
-<h3>Explorando el Pasado:</h3>
-<p>Imagina tener acceso a una amplia gama de eventos históricos, desde los hitos más conocidos hasta joyas menos conocidas. En nuestra plataforma, te invitamos a explorar y descubrir cómo el pasado ha influido en el presente.</p>
+        <h3>Explorando el Pasado:</h3>
+        <p>Imagina tener acceso a una amplia gama de eventos históricos, desde los hitos más conocidos hasta joyas menos conocidas. En nuestra plataforma, te invitamos a explorar y descubrir cómo el pasado ha influido en el presente.</p>
 
-<h3>Compartiendo Conocimientos:</h3>
-<p>Creemos en el poder de la comunidad y el intercambio de ideas. En nuestra plataforma, no solo puedes aprender de eventos históricos, sino también compartir tu propio conocimiento. ¿Tienes una historia que te apasiona? ¡Compártela y enriquece la experiencia de todos!</p>
+        <h3>Compartiendo Conocimientos:</h3>
+        <p>Creemos en el poder de la comunidad y el intercambio de ideas. En nuestra plataforma, no solo puedes aprender de eventos históricos, sino también compartir tu propio conocimiento. ¿Tienes una historia que te apasiona? ¡Compártela y enriquece la experiencia de todos!</p>
 
-<h3>Un Espacio para Todos:</h3>
-<p>La Plataforma de Eventos Históricos es un lugar inclusivo para amantes de la historia, estudiantes, profesionales y curiosos por igual. Queremos que todos se sientan bienvenidos y motivados a explorar, aprender y contribuir.</p>
+        <h3>Un Espacio para Todos:</h3>
+        <p>La Plataforma de Eventos Históricos es un lugar inclusivo para amantes de la historia, estudiantes, profesionales y curiosos por igual. Queremos que todos se sientan bienvenidos y motivados a explorar, aprender y contribuir.</p>
 
-<h3>Únete a la Conversación:</h3>
-<p>Cada evento histórico tiene una historia única que contar, y queremos que tú también formes parte de esa narrativa. Únete a las conversaciones, haz preguntas, comparte anécdotas y conecta con personas que comparten tu pasión por la historia.</p>
+        <h3>Únete a la Conversación:</h3>
+        <p>Cada evento histórico tiene una historia única que contar, y queremos que tú también formes parte de esa narrativa. Únete a las conversaciones, haz preguntas, comparte anécdotas y conecta con personas que comparten tu pasión por la historia.</p>
 
-<h3>Notas sobre el Proyecto:</h3>
-<p>Entendemos que cada historia tiene múltiples perspectivas y estamos comprometidos a presentar una variedad de puntos de vista. Además, buscamos mejorar continuamente nuestra plataforma para brindar la mejor experiencia de usuario posible.</p>
+        <h3>Notas sobre el Proyecto:</h3>
+        <p>Entendemos que cada historia tiene múltiples perspectivas y estamos comprometidos a presentar una variedad de puntos de vista. Además, buscamos mejorar continuamente nuestra plataforma para brindar la mejor experiencia de usuario posible.</p>
 
-<h3>¡Explora, Aprende y Comparte en la Plataforma de Eventos Históricos!</h3>
-<p>Estamos encantados de tenerte con nosotros mientras exploras, aprendes y compartes en nuestra plataforma. Juntos, creamos un espacio dinámico donde la historia cobra vida y la curiosidad es bienvenida. ¡Bienvenido a un viaje a través del tiempo en la Plataforma de Eventos Históricos! 🕰📚🌐</p>
-</div>
+        <h3>¡Explora, Aprende y Comparte en la Plataforma de Eventos Históricos!</h3>
+        <p>Estamos encantados de tenerte con nosotros mientras exploras, aprendes y compartes en nuestra plataforma. Juntos, creamos un espacio dinámico donde la historia cobra vida y la curiosidad es bienvenida. ¡Bienvenido a un viaje a través del tiempo en la Plataforma de Eventos Históricos! 🕰📚🌐</p>
+    </div>
 
     <div class="page-content typing-animation hidden" id="english">
-       <strong>Welcome to our exciting Historical Events Platform project! We're thrilled to have you here, exploring a fascinating world of knowledge and learning through the great moments that have shaped history.</strong>
+        <strong>Welcome to our exciting Historical Events Platform project! We're thrilled to have you here, exploring a fascinating world of knowledge and learning through the great moments that have shaped history.</strong>
 
-<h3>Our Mission:</h3>
-<p>In the Historical Events Platform, we are dedicated to sharing and celebrating the richness of our collective history. Our mission is to provide a space where the community can delve into significant historical events, learn from them, and share their own knowledge.</p>
+        <h3>Our Mission:</h3>
+        <p>In the Historical Events Platform, we are dedicated to sharing and celebrating the richness of our collective history. Our mission is to provide a space where the community can delve into significant historical events, learn from them, and share their own knowledge.</p>
 
-<h2>Exploring the Past:</h2>
-<p>Imagine having access to a wide range of historical events, from the most well-known milestones to lesser-known gems. On our platform, we invite you to explore and discover how the past has influenced the present.</p>
+        <h3>Exploring the Past:</h3>
+        <p>Imagine having access to a wide range of historical events, from the most well-known milestones to lesser-known gems. On our platform, we invite you to explore and discover how the past has influenced the present.</p>
 
-<h3>Sharing Knowledge:</h3>
-<p>We believe in the power of community and the exchange of ideas. On our platform, you can not only learn from historical events but also share your own knowledge. Have a story that you're passionate about? Share it and enrich everyone's experience!</p>
+        <h3>Sharing Knowledge:</h3>
+        <p>We believe in the power of community and the exchange of ideas. On our platform, you can not only learn from historical events but also share your own knowledge. Have a story that you're passionate about? Share it and enrich everyone's experience!</p>
 
-<h3>A Space for Everyone:</h3>
-<p>The Historical Events Platform is an inclusive place for history enthusiasts, students, professionals, and curious minds alike. We want everyone to feel welcome and motivated to explore, learn, and contribute.</p>
+        <h3>A Space for Everyone:</h3>
+        <p>The Historical Events Platform is an inclusive place for history enthusiasts, students, professionals, and curious minds alike. We want everyone to feel welcome and motivated to explore, learn, and contribute.</p>
 
-<h3>Join the Conversation:</h3>
-<p>Every historical event has a unique story to tell, and we want you to be part of that narrative too. Join the conversations, ask questions, share anecdotes, and connect with people who share your passion for history.</p>
+        <h3>Join the Conversation:</h3>
+        <p>Every historical event has a unique story to tell, and we want you to be part of that narrative too. Join the conversations, ask questions, share anecdotes, and connect with people who share your passion for history.</p>
 
-<h3>Notes about the Project:</h3>
-<p>We understand that every story has multiple perspectives, and we are committed to presenting a variety of viewpoints. Additionally, we seek to continuously improve our platform to provide the best possible user experience.</p>
+        <h3>Notes about the Project:</h3>
+        <p>We understand that every story has multiple perspectives, and we are committed to presenting a variety of viewpoints. Additionally, we seek to continuously improve our platform to provide the best possible user experience.</p>
 
-<h3>Explore, Learn, and Share on the Historical Events Platform!</h3>
-<p>We are delighted to have you with us as you explore, learn, and share on our platform. Together, we create a dynamic space where history comes to life, and curiosity is welcomed. Welcome to a journey through time on the Historical Events Platform! 🕰📚🌐</p>
-
+        <h3>Explore, Learn, and Share on the Historical Events Platform!</h3>
+        <p>We are delighted to have you with us as you explore, learn, and share on our platform. Together, we create a dynamic space where history comes to life, and curiosity is welcomed. Welcome to a journey through time on the Historical Events Platform! 🕰📚🌐</p>
     </div>
 
-     <div class="page-content typing-animation hidden" id="catalan">
+    <div class="page-content typing-animation hidden" id="catalan">
         <strong>Benvingut al nostre apassionant projecte de Plataforma d'Esdeveniments Històrics! Estem emocionats de tenir-te aquí, explorant un món fascinant de coneixement i aprenentatge a través dels grans moments que han donat forma a la història.</strong>
 
-<h3>La nostra Missió:</h3>
-<p>A la Plataforma d'Esdeveniments Històrics, ens dediquem a compartir i celebrar la riquesa de la nostra història col·lectiva. La nostra missió és proporcionar un espai on la comunitat pugui submergir-se en esdeveniments històrics significatius, aprendre'n i compartir el seu propi coneixement.</p>
+        <h3>La nostra Missió:</h3>
+        <p>A la Plataforma d'Esdeveniments Històrics, ens dediquem a compartir i celebrar la riquesa de la nostra història col·lectiva. La nostra missió és proporcionar un espai on la comunitat pugui submergir-se en esdeveniments històrics significatius, aprendre'n i compartir el seu propi coneixement.</p>
 
-<h3>Explorant el Passat:</h3>
-<p>Imagina tenir accés a una àmplia gamma d'esdeveniments històrics, des dels fets més coneguts fins a les joies menys conegudes. A la nostra plataforma, t'animem a explorar i descobrir com el passat ha influït en el present.</p>
+        <h3>Explorant el Passat:</h3>
+        <p>Imagina tenir accés a una àmplia gamma d'esdeveniments històrics, des dels fets més coneguts fins a les joies menys conegudes. A la nostra plataforma, t'animem a explorar i descobrir com el passat ha influït en el present.</p>
 
-<h3>Compartint Coneixements:</h3>
-<p>Creiem en el poder de la comunitat i l'intercanvi d'idees. A la nostra plataforma, no només pots aprendre d'esdeveniments històrics, sinó també compartir el teu propi coneixement. Tens una història que t'apassiona? Comparteix-la i enriqueix l'experiència de tots!</p>
+        <h3>Compartint Coneixements:</h3>
+        <p>Creiem en el poder de la comunitat i l'intercanvi d'idees. A la nostra plataforma, no només pots aprendre d'esdeveniments històrics, sinó també compartir el teu propi coneixement. Tens una història que t'apassiona? Comparteix-la i enriqueix l'experiència de tots!</p>
 
-<h3>Un Espai per a Tothom:</h3>
-<p>La Plataforma d'Esdeveniments Històrics és un lloc inclusiu per a amants de la història, estudiants, professionals i curiosos per igual. Volem que tothom es senti benvingut i motivat a explorar, aprendre i contribuir.</p>
+        <h3>Un Espai per a Tothom:</h3>
+        <p>La Plataforma d'Esdeveniments Històrics és un lloc inclusiu per a amants de la història, estudiants, professionals i curiosos per igual. Volem que tothom es senti benvingut i motivat a explorar, aprendre i contribuir.</p>
 
-<h3>Uneix-te a la Conversa:</h3>
-<p>Cada esdeveniment històric té una història única per explicar, i volem que tu també formin part d'aquesta narrativa. Uneix-te a les converses, fes preguntes, comparteix anecdotes i connecta amb persones que comparteixen la teva passió per la història.</p>
+        <h3>Uneix-te a la Conversa:</h3>
+        <p>Cada esdeveniment històric té una història única per explicar, i volem que tu també formin part d'aquesta narrativa. Uneix-te a les converses, fes preguntes, comparteix anecdotes i connecta amb persones que comparteixen la teva passió per la història.</p>
 
-<h3>Notes sobre el Projecte:</h3>
-<p>Entenem que cada història té múltiples perspectives i estem compromesos a presentar una varietat de punts de vista. A més, busquem millorar contínuament la nostra plataforma per oferir la millor experiència d'usuari possible.</p>
+        <h3>Notes sobre el Projecte:</h3>
+        <p>Entenem que cada història té múltiples perspectives i estem compromesos a presentar una varietat de punts de vista. A més, busquem millorar contínuament la nostra plataforma per oferir la millor experiència d'usuari possible.</p>
 
-<h3>Explora, Aprèn i Comparteix a la Plataforma d'Esdeveniments Històrics!</h3>
-<p>Estem encantats de tenir-te amb nosaltres mentre explores, aprens i compartixes a la nostra plataforma. Junts, creem un espai dinàmic on la història pren vida i la curiositat és benvinguda. Benvingut a un viatge a través del temps a la Plataforma d'Esdeveniments Històrics! 🕰📚🌐</p>
-
+        <h3>Explora, Aprèn i Comparteix a la Plataforma d'Esdeveniments Històrics!</h3>
+        <p>Estem encantats de tenir-te amb nosaltres mentre explores, aprens i compartixes a la nostra plataforma. Junts, creem un espai dinàmic on la història pren vida i la curiositat és benvinguda. Benvingut a un viatge a través del temps a la Plataforma d'Esdeveniments Històrics! 🕰📚🌐</p>
     </div>
+
     <script src="/js/pag-about.js"></script>
-    <script src="/js/efect-about.js"></script>
-   
 </body>
+</html>

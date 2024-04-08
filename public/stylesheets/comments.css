@@ -1,61 +1,83 @@
 .body-event-comments {
-    font-family: 'Arial', sans-serif;
-    background-image: url("https://xn--outletmontaa-khb.com/wp-content/uploads/2022/12/senderismo-invierno.jpg");
-    height: 100%;
-    background-size: cover;
-    color: #333; 
-    margin: 0;
-    padding: 0;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-image: url("https://xn--outletmontaa-khb.com/wp-content/uploads/2022/12/senderismo-invierno.jpg");
+  height: auto;
+  min-height: 100vh; 
+  background-size: cover;
+  color: #333; 
+  margin: 0;
+  padding: 0;
+}
+
+.container-comments {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(149, 193, 247);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h-comments {
+  font-size: 2em;
+  color: #8b9dcb; 
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.comment-comments:nth-child(odd) {
+  background-color: #5975e5; 
+}
+
+.comment-comments:nth-child(even) {
+  background-color: #1b6eea; 
+}
+
+.comment-comments {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-comments p {
+  margin: 0;
+}
+
+.link-comment {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #6d6ebe; 
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.link-comment:hover {
+  background-color: #b852a2; 
+}
+
+@media only screen and (max-width: 768px) {
   .container-comments {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgb(149, 193, 247);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 10px; 
   }
-  
+
   .h-comments {
-    font-size: 2em;
-    color: #8b9dcb; 
-    margin-bottom: 20px;
-    text-align: center;
+      font-size: 1.5em; 
   }
-  
-  .comment-comments:nth-child(odd) {
-    background-color: #5975e5; 
+}
+
+@media only screen and (max-width: 480px) {
+  .container-comments {
+      max-width: 90%; 
   }
-  
-  .comment-comments:nth-child(even) {
-    background-color: #1b6eea; 
-  }
-  
+
   .comment-comments {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px; 
   }
-  
-  .comment-comments p {
-    margin: 0;
-  }
-  
-  .link-comment {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #6d6ebe; 
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .link-comment:hover {
-    background-color: #b852a2; 
-  }
+}
+
   
   

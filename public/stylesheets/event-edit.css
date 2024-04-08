@@ -1,14 +1,13 @@
 .body-edit {
     margin: 0;
     padding: 0;
-  
 }
 
 .background-container-edit {
     background-image: url("/images/norway.jpg");
     background-size: cover; 
     background-position: center;
-    height: 100vh; 
+    height: 100%; 
     width: 100%;
     box-sizing: border-box; 
     display: flex;
@@ -20,6 +19,7 @@
     max-width: 600px;
     margin: 0 auto;
     width: 100%; 
+    padding: 0 20px; 
 }
 
 .edit-page-title {
@@ -38,12 +38,13 @@ label {
     margin-bottom: 5px;
 }
 
-input {
+input, textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; 
 }
 
 .update-edit, .discard-edit {
@@ -60,16 +61,16 @@ input {
     background-color: #3e82da;
 }
 
-.edit-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    resize: vertical;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+@media only screen and (max-width: 600px) {
+    .edit-hbs {
+        max-width: 100%;
+    }
 }
-.label-edit {
-    color: black;
-    
+
+@media only screen and (max-width: 400px) {
+    .edit-page-title {
+        font-size: 28px;
+    }
 }
+
 
