@@ -11,6 +11,7 @@ const {
 } = require("../models/HistoricalEvent.model");
 
 // RUTA DE PERFIL
+// TODO manejo de errores(mensajes de error) para archivos grandes(manejo multer)
 
 router.get("/profile", isLoggedIn, (req, res) => {
   const user = req.session.user;

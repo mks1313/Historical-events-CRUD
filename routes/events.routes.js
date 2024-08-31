@@ -10,7 +10,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const helpers = require("../config/helpers");
 const secure = require("../middleware/secure");
 const { calculateAverageRating } = require("../config/helpers");
-const { formatDate } = require("../config/dateHelper"); 
+const { formatDate } = require("../config/dateHelper");
 
 // Ruta para obtener todos los eventos
 router.get("/event-archive", secure, (req, res, next) => {
@@ -23,7 +23,6 @@ router.get("/event-archive", secure, (req, res, next) => {
         ...event.toObject(),
         averageRating: helpers.calculateAverageRating(event.ratings),
       }));
-
       res.render("events/event-archive", { events: eventsWithRating });
     })
     .catch((error) => {
@@ -43,28 +42,25 @@ router.get("/:_id", isLoggedIn, (req, res, next) => {
     .populate("creator", "username")
     .populate("comments.author", "username")
     .populate("ratings.user", "username")
-
     .then((event) => {
-      // console.log(event); AVERIGUAR EL ERROR, MAS TARDE
       const canEdit = event.creator._id.toString() === req.session.user._id;
       const averageRating = calculateAverageRating(event.ratings);
       const formattedDate = formatDate(event.date);
 
-      res.render("events/event-single", { event, averageRating, canEdit, formattedDate  });
+      res.render("events/event-single", { event, averageRating, canEdit, formattedDate });
     })
     .catch((error) => {
       next(error);
     });
 });
-
+// TODO manejo de errores(mensajes de error) para archivos grandes(manejo multer)
 // Ruta para crear un nuevo evento
 router.post(
   "/create",
   isLoggedIn,
   fileUploader.single("image"),
   (req, res, next) => {
-    const { title, date, location, description, links, notableCharacters } =
-      req.body;
+    const { title, date, location, description, links, notableCharacters } = req.body;
     const image = req.file ? req.file.path : undefined;
     const creator = req.session.user._id;
 
@@ -86,8 +82,8 @@ router.post(
       });
   }
 );
-// Ruta para ver los comentarios de un evento
 
+// Ruta para agregar comentarios y valoraciones
 router.post("/:id/comments", isLoggedIn, (req, res, next) => {
   const eventId = req.params.id;
   const { content, value } = req.body;
@@ -100,13 +96,15 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
       }
       if (content) {
         event.comments.push({ author: userId, content });
-        // return Comment.create({ author: userId, content }); VER COMO SOLUCIONAR!!!!
+      }
+      if (value) {
+        event.ratings.push({ user: userId, value });
       }
 
       return event.save();
     })
     .then((updatedEvent) => {
-      res.locals.successMessage = "Event UPDATED successfully";
+      res.locals.successMessage = "Event updated successfully";
       const rutaRedireccion = `/events/${updatedEvent._id}`;
       res.redirect(rutaRedireccion);
     })
@@ -115,10 +113,11 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     });
 });
 
-//Ruta para agregar valoraciones a un evento
+// Ruta para agregar valoraciones a un evento
 router.post("/:id/rating", isLoggedIn, (req, res, next) => {
   const eventId = req.params.id;
-  const { userId, value } = req.body;
+  const { value } = req.body;
+  const userId = req.session.user._id;
 
   HistoricalEvent.findById(eventId)
     .then((event) => {
@@ -132,7 +131,7 @@ router.post("/:id/rating", isLoggedIn, (req, res, next) => {
       return event.save();
     })
     .then((updatedEvent) => {
-      res.status(201).json({ message: "Succes", updatedEvent });
+      res.status(201).json({ message: "Success", updatedEvent });
     })
     .catch((error) => {
       next(error);
@@ -167,12 +166,9 @@ router.post(
       updatedEventData.image = image;
     }
 
-    HistoricalEvent.findById(_id)
-      .then((event) => {
-        return HistoricalEvent.findByIdAndUpdate(_id, updatedEventData, {
-          new: true,
-        });
-      })
+    HistoricalEvent.findByIdAndUpdate(_id, updatedEventData, {
+      new: true,
+    })
       .then((updatedEvent) => {
         const rutaRedireccion = `/events/${updatedEvent._id}`;
         res.redirect(rutaRedireccion);
@@ -187,10 +183,7 @@ router.post(
 router.get("/:id/delete", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
 
-  HistoricalEvent.findById(id)
-    .then((id) => {
-      return HistoricalEvent.findByIdAndDelete(id);
-    })
+  HistoricalEvent.findByIdAndDelete(id)
     .then(() => {
       res.redirect("/events/event-archive");
     })
@@ -200,3 +193,4 @@ router.get("/:id/delete", isLoggedIn, (req, res, next) => {
 });
 
 module.exports = router;
+
