@@ -1,6 +1,9 @@
 function calculateAverageRating(ratings) {
   if (ratings.length === 0) {
-    return "No ratings yet";
+    return {
+      average: null,
+      count: 0
+    }
   }
 
   const totalRating = ratings.reduce((sum, rating) => sum + rating.value, 0);
