@@ -69,7 +69,6 @@ Set up environment variables: Create a .env file in the root directory and add y
 
 Run the application:
 
-bash
 
     npm start
 
@@ -80,21 +79,18 @@ bash
 Contributions are welcome! Follow these steps to contribute:
 
     Fork the repository.
+    
     Create a new branch:
 
-    bash
 
 git checkout -b feature/your-feature-name
 
 Make your changes and commit them:
 
-bash
-
 git commit -m 'Add some feature'
 
 Push to the branch:
 
-bash
 
     git push origin feature/your-feature-name
 
