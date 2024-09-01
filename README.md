@@ -97,6 +97,11 @@ Push to the branch:
 
     Open a Pull Request.
 
+    ## 📝 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+
 👤 Author
 
 Maksim Georgiev Marinov - mks1313
