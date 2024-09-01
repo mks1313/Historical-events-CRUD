@@ -59,18 +59,25 @@ Ensure you have the following installed:
 1. **Clone the repository**:
    ```bash
    git clone git@github.com:mks1313/Historical-events-CRUD.git
-Install dependencies:
 
+    Install dependencies:
+
+    bash
 
 npm install
 
-Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables.
+Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables. Example .env file:
+
+makefile
+
+MONGODB_URI=your_mongodb_connection_string
+PORT=3000
 
 Run the application:
 
+bash
 
     npm start
-    
 
     Access the application: Open http://localhost:3000 in your browser.
 
@@ -79,29 +86,30 @@ Run the application:
 Contributions are welcome! Follow these steps to contribute:
 
     Fork the repository.
-    
+
     Create a new branch:
 
+    bash
 
 git checkout -b feature/your-feature-name
 
 Make your changes and commit them:
 
+bash
 
 git commit -m 'Add some feature'
 
 Push to the branch:
 
-  git push origin feature/your-feature-name
+bash
 
-Open a Pull Request.
-    
+    git push origin feature/your-feature-name
 
- ## 📝 Licencia
+    Open a Pull Request.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+📝 License
 
-
+This project is licensed under the MIT License. See the LICENSE file for more details.
 👤 Author
 
 Maksim Georgiev Marinov - mks1313
@@ -109,4 +117,4 @@ Maksim Georgiev Marinov - mks1313
 
 Feel free to reach out if you have any questions or feedback!
 
-Visit: Historical Events CRUD
+Visit: [Historical Events CRUD](https://historical-events-crud-git-main-maksims-projects-22a788de.vercel.app/)
