@@ -60,11 +60,11 @@ Ensure you have the following installed:
    ```bash
    git clone git@github.com:mks1313/Historical-events-CRUD.git
 
-    Install dependencies:
+ Install dependencies:
 
-    bash
+    ```bash
 
-npm install
+   npm install
 
 Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables. Example .env file:
 
