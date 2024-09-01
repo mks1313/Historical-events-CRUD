@@ -61,7 +61,6 @@ Ensure you have the following installed:
    git clone git@github.com:mks1313/Historical-events-CRUD.git
 Install dependencies:
 
-bash
 
 npm install
 
@@ -69,9 +68,9 @@ Set up environment variables: Create a .env file in the root directory and add y
 
 Run the application:
 
-bash
 
     npm start
+    
 
     Access the application: Open http://localhost:3000 in your browser.
 
@@ -80,21 +79,19 @@ bash
 Contributions are welcome! Follow these steps to contribute:
 
     Fork the repository.
+    
     Create a new branch:
 
-    bash
 
 git checkout -b feature/your-feature-name
 
 Make your changes and commit them:
 
-bash
 
 git commit -m 'Add some feature'
 
 Push to the branch:
 
-bash
 
     git push origin feature/your-feature-name
 
