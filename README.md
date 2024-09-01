@@ -73,35 +73,32 @@ PORT=3000
 
 4. **Run the application**:
 
-```bash
- npm start
+   ```bash
+    npm start
 
  5. **Access the application**: Open http://localhost:3000 in your browser.
 
-🤝 Contributions
+🤝 **Contributions**
 
 **Contributions are welcome**! Follow these steps to contribute:
 
-    Fork the repository.
-    Create a new branch:
+ 1. **Fork the repository.**
+2. **Create a new branch**:
 
-    bash
+    ```bash
+    git checkout -b feature/your-feature-name
 
-git checkout -b feature/your-feature-name
+3. **Make your changes and commit them:**
 
-Make your changes and commit them:
+   ```bash
+   git commit -m 'Add some feature'
 
-bash
+4. **Push to the branch:**
 
-git commit -m 'Add some feature'
-
-Push to the branch:
-
-bash
-
+    ```bash
     git push origin feature/your-feature-name
 
-    Open a Pull Request.
+5. **Open a Pull Request.**
 
 ## 📝 License
 
