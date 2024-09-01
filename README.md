@@ -113,19 +113,20 @@ Maksim Georgiev Marinov - mks1313
 
 <div style="display: flex; align-items: center; justify-content: center;">
 
-  <a href="mailto:mg.marinov@gmx.es" style="margin: 0 20px;">
+  <a href="mailto:mg.marinov@gmx.es" style="margin: 0 30px;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" width="40" alt="Email">
   </a>
 
-  <a href="https://www.linkedin.com/in/mgmarinov/" style="margin: 0 20px;">
+  <a href="https://www.linkedin.com/in/mgmarinov/" style="margin: 0 30px;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="40" alt="LinkedIn">
   </a>
 
-  <a href="https://www.mgmarinov.com/portfolio" style="margin: 0 20px;">
+  <a href="https://www.mgmarinov.com/portfolio" style="margin: 0 30px;">
     <img src="https://res.cloudinary.com/dnwyfbj7m/image/upload/v1724882231/portfolio.png" width="40" alt="Portfolio">
   </a>
 
 </div>
+
 
 Feel free to reach out if you have any questions or feedback.
 
