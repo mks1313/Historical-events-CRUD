@@ -92,14 +92,14 @@ git commit -m 'Add some feature'
 
 Push to the branch:
 
+  git push origin feature/your-feature-name
 
-    git push origin feature/your-feature-name
+Open a Pull Request.
+    
 
-    Open a Pull Request.
+ ## 📝 Licencia
 
-    ## 📝 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 
 👤 Author
