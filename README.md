@@ -60,30 +60,27 @@ Ensure you have the following installed:
    ```bash
    git clone git@github.com:mks1313/Historical-events-CRUD.git
 
- Install dependencies:
+2. **Install dependencies**:
 
     ```bash
+    npm install
 
-   npm install
-
-Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables. Example .env file:
-
+3. **Set up environment variables**: Create a **.env** file in the root directory and add your MongoDB connection string and other necessary environment variables. Example **.env** file:
 dotenv
 
 MONGODB_URI=your_mongodb_connection_string
 PORT=3000
 
-Run the application:
+4. **Run the application**:
 
-bash
+```bash
+ npm start
 
-    npm start
-
-    Access the application: Open http://localhost:3000 in your browser.
+ 5. **Access the application**: Open http://localhost:3000 in your browser.
 
 🤝 Contributions
 
-Contributions are welcome! Follow these steps to contribute:
+**Contributions are welcome**! Follow these steps to contribute:
 
     Fork the repository.
     Create a new branch:
