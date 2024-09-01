@@ -65,7 +65,9 @@ bash
 
 npm install
 
-Set up environment variables: Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables.
+Set up environment variables:
+
+Create a .env file in the root directory and add your MongoDB connection string and other necessary environment variables.
 
 Run the application:
 
@@ -73,7 +75,9 @@ bash
 
     npm start
 
-    Access the application: Open http://localhost:3000 in your browser.
+    Access the application:
+
+    Open http://localhost:3000 in your browser.
 
 🤝 Contributions
 
@@ -87,10 +91,9 @@ Contributions are welcome! Follow these steps to contribute:
 
 👤 Author
 
-    Maksim Georgiev Marinov - mks1313
-
+Maksim Georgiev Marinov - mks1313
 📧 Contact
 
 Feel free to reach out if you have any questions or feedback!
 
-vitis: https://historical-events-crud.vercel.app/
+Visit: Historical Events CRUD
