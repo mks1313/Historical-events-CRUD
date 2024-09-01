@@ -66,10 +66,10 @@ Ensure you have the following installed:
     npm install
 
 3. **Set up environment variables**: Create a **.env** file in the root directory and add your MongoDB connection string and other necessary environment variables. Example **.env** file:
-dotenv
 
-MONGODB_URI=your_mongodb_connection_string
-PORT=3000
+   ```dotenv
+   MONGODB_URI=your_mongodb_connection_string
+   PORT=3000
 
 4. **Run the application**:
 
