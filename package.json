@@ -28,9 +28,8 @@
     "multer-storage-cloudinary": "^4.0.0",
     "semver": "^7.5.2",
     "serve-favicon": "^2.5.0",
-    "tar": "^6.2.1",
-    "uid2": "^1.0.0",
-    "undici": "^6.19.8",
+    "tar": "^7.0.0",
+    "undici": "^6.20.0",
     "vercel": "^32.3.0"
   },
   "devDependencies": {
