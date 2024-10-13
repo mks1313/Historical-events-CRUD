@@ -1,19 +1,20 @@
 const express = require("express");
 const router = express.Router();
-
-// ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-
-// How many rounds should bcrypt run the salt (default - 10 rounds)
-const saltRounds = 10;
-
-// Require the User model in order to interact with the database
 const User = require("../models/User.model");
-
-// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+
+const saltRounds = 10;
+
+// Validación de contraseña
+const validatePassword = (password) => {
+  const hasNumber = /[0-9]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasUppercase = /[A-Z]/.test(password);
+  return password.length >= 6 && hasNumber && hasLowercase && hasUppercase;
+};
 
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
@@ -21,37 +22,24 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", isLoggedOut, (req, res, next) => {
   const { username, email, password, profileImage } = req.body;
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
-    res.status(400).render("auth/signup", {
-      errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
+  // Comprobación de campos vacíos
+  if (!username || !email || !password) {
+    return res.status(400).render("auth/signup", {
+      errorMessage: "All fields are mandatory. Please provide your username, email, and password.",
     });
-
-    return;
   }
 
-  if (password.length < 6) {
-    res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
+  // Validación de contraseña
+  if (!validatePassword(password)) {
+    return res.status(400).render("auth/signup", {
+      errorMessage: "Password must have at least 6 characters and include at least one number, one lowercase and one uppercase letter.",
     });
-
-    return;
-  }
-  //   ! This regular expression checks password for special characters and minimum length
-
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
-    res.status(400).render("auth/signup", {
-      errorMessage:
-        "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
-    });
-    return;
   }
 
+  // Hash de la contraseña
   bcrypt
     .genSalt(saltRounds)
     .then((salt) => bcrypt.hash(password, salt))
@@ -63,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         password: hashedPassword,
       });
     })
-    .then((user) => {
+    .then(() => {
       res.redirect("/auth/login");
     })
     .catch((error) => {
@@ -71,11 +59,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
         res.status(500).render("auth/signup", { errorMessage: error.message });
       } else if (error.code === 11000) {
         res.status(500).render("auth/signup", {
-          errorMessage:
-            "Username and email need to be unique. Provide a valid username or email.",
+          errorMessage: "Username and email need to be unique. Provide a valid username or email.",
         });
       } else {
-        next(error);
+        next(error); // Pasa el error al siguiente middleware
       }
     });
 });
@@ -89,66 +76,41 @@ router.get("/login", isLoggedOut, (req, res) => {
 router.post("/login", isLoggedOut, (req, res, next) => {
   const { email, password } = req.body;
 
-  // Check that username, email, and password are provided
-  if (email === "" || password === "") {
-    res.status(400).render("auth/login", {
-      errorMessage:
-        "All fields are mandatory. Please provide username, email and password.",
-    });
-
-    return;
-  }
-
-  if (password.length < 6) {
+  // Comprobación de campos vacíos
+  if (!email || !password) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
+      errorMessage: "All fields are mandatory. Please provide email and password.",
     });
   }
 
   User.findOne({ email })
     .then((user) => {
       if (!user) {
-        res
-          .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
-        return;
+        return res.status(400).render("auth/login", { errorMessage: "Wrong credentials." });
       }
 
-      bcrypt
-        .compare(password, user.password)
-        .then((isSamePassword) => {
-          if (!isSamePassword) {
-            res
-              .status(400)
-              .render("auth/login", { errorMessage: "Wrong credentials." });
-            return;
-          }
-          req.session.user = {
-            _id: user._id,
-            username: user.username,
-          };
+      return bcrypt.compare(password, user.password).then((isSamePassword) => {
+        if (!isSamePassword) {
+          return res.status(400).render("auth/login", { errorMessage: "Wrong credentials." });
+        }
 
-          req.session.user = user.toObject();
-
-          delete req.session.user.password;
-
-          res.redirect("/users/profile");
-        })
-        .catch((err) => next(err));
+        req.session.user = user.toObject();
+        delete req.session.user.password; // Elimina la contraseña de la sesión
+        res.redirect("/users/profile");
+      });
     })
     .catch((err) => next(err));
 });
 
-//  /auth/logout
+// POST /auth/logout
 router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      res.status(500).render("auth/logout", { errorMessage: err.message });
-      return;
+      return res.status(500).render("auth/logout", { errorMessage: err.message });
     }
-
     res.redirect("/");
   });
 });
 
 module.exports = router;
+
