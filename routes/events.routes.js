@@ -53,7 +53,7 @@ router.get("/:_id", isLoggedIn, (req, res, next) => {
       next(error);
     });
 });
-// TODO manejo de errores(mensajes de error) para archivos grandes(manejo multer)
+//  manejo de errores(mensajes de error) para archivos grandes(manejo multer)
 // Ruta para crear un nuevo evento
 router.post(
   "/create",

@@ -41,7 +41,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
 
     return;
   }
-// TODO terminar seguridad de login
   //   ! This regular expression checks password for special characters and minimum length
 
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
