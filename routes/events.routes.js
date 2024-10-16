@@ -83,7 +83,6 @@ router.post(
   }
 );
 
-// Ruta para agregar comentarios y valoraciones
 router.post("/:id/comments", isLoggedIn, (req, res, next) => {
   const eventId = req.params.id;
   const { content, value } = req.body;
@@ -113,7 +112,6 @@ router.post("/:id/comments", isLoggedIn, (req, res, next) => {
     });
 });
 
-// Ruta para agregar valoraciones a un evento
 router.post("/:id/rating", isLoggedIn, (req, res, next) => {
   const eventId = req.params.id;
   const { value } = req.body;
@@ -139,7 +137,6 @@ router.post("/:id/rating", isLoggedIn, (req, res, next) => {
     });
 });
 
-// Ruta para obtener el formulario de edición de un evento
 router.get("/:_id/edit", isLoggedIn, (req, res, next) => {
   const { _id } = req.params;
 
