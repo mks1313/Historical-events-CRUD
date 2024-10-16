@@ -16,7 +16,6 @@ const storage = new CloudinaryStorage({
   }
 });
 
-// Configuración  del límite de tamaño (2MB), manejo 
 const fileUploader = multer({
   storage,
   limits: {
