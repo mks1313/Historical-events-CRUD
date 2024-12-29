@@ -8,7 +8,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 const saltRounds = 10;
 
-// Validación de contraseña
 const validatePassword = (password) => {
   const hasNumber = /[0-9]/.test(password);
   const hasLowercase = /[a-z]/.test(password);
@@ -25,21 +24,21 @@ router.get("/signup", isLoggedOut, (req, res) => {
 router.post("/signup", isLoggedOut, (req, res, next) => {
   const { username, email, password, profileImage } = req.body;
 
-  // Comprobación de campos vacíos
+  // Check empty fields
   if (!username || !email || !password) {
     return res.status(400).render("auth/signup", {
       errorMessage: "All fields are mandatory. Please provide your username, email, and password.",
     });
   }
 
-  // Validación de contraseña
+  // Validation 
   if (!validatePassword(password)) {
     return res.status(400).render("auth/signup", {
       errorMessage: "Password must have at least 6 characters and include at least one number, one lowercase and one uppercase letter.",
     });
   }
 
-  // Hash de la contraseña
+  // Hash of the password
   bcrypt
     .genSalt(saltRounds)
     .then((salt) => bcrypt.hash(password, salt))
@@ -62,7 +61,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
           errorMessage: "Username and email need to be unique. Provide a valid username or email.",
         });
       } else {
-        next(error); // Pasa el error al siguiente middleware
+        next(error); 
       }
     });
 });
@@ -76,7 +75,6 @@ router.get("/login", isLoggedOut, (req, res) => {
 router.post("/login", isLoggedOut, (req, res, next) => {
   const { email, password } = req.body;
 
-  // Comprobación de campos vacíos
   if (!email || !password) {
     return res.status(400).render("auth/login", {
       errorMessage: "All fields are mandatory. Please provide email and password.",
@@ -95,7 +93,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
 
         req.session.user = user.toObject();
-        delete req.session.user.password; // Elimina la contraseña de la sesión
+        delete req.session.user.password; 
         res.redirect("/users/profile");
       });
     })

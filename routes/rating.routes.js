@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const  HistoricalEvent   = require("../models/HistoricalEvent.model").HistoricalEvent;
-// const User = require("../models/User.model");
 const isLoggedIn = require('../middleware/isLoggedIn');
 const mongoose = require('mongoose');
 
