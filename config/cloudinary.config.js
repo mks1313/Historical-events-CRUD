@@ -16,11 +16,11 @@ const storage = new CloudinaryStorage({
   }
 });
 
-// Configuración  del límite de tamaño (2MB)
+// Configuratión  of size limit (2MB)
 const fileUploader = multer({
   storage,
   limits: {
-    fileSize: 2 * 1024 * 1024 // Limita el tamaño del archivo a 2MB
+    fileSize: 2 * 1024 * 1024 // Limit size to 2MB
   }
 });
 
