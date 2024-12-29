@@ -39,7 +39,7 @@ const MongoStore = require("connect-mongo");
 const MONGO_URI =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/project-2";
 
-// Middleware configuration
+// Middleware config
 module.exports = (app) => {
   // In development environment the app logs
   app.use(logger("dev"));
