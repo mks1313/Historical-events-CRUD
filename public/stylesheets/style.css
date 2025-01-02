@@ -36,7 +36,11 @@
 }
 
 .logo {
-  width: 40px;
+  filter: invert(10%) contrast(200%) brightness(100%);
+  width: 30px;
+  opacity: 0.4;
+  background-color: rgba(239, 234, 234, 0.98);
+  border-radius: 50%;
 }
 
 .nav-item-index {
