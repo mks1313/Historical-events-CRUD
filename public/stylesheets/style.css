@@ -14,6 +14,8 @@
   height: 100%;
   object-fit: cover; 
   z-index: -1; 
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 .bodyindex {
@@ -210,3 +212,30 @@
   }
 }
 
+@media (max-width: 375px) {
+  .content-index h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    width: 100px;
+    height: 40px;
+  }
+
+  .navbar a {
+    font-size: 0.8rem;
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .content-index h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .icons {
+    display: block;
+  }
+}

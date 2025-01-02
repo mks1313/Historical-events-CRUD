@@ -9,16 +9,12 @@ require("./db");
 // https://www.npmjs.com/package/express
 const express = require("express");
 
-
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
 const helpers = require('./config/helpers');
 hbs.registerHelper(helpers);
-
-
-
 
 const app = express();
 const session = require('express-session');
@@ -46,13 +42,19 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
-
 app.locals.appTitle = `${capitalize(projectName)} Historical Events by Maksim`
 
+// Configuración de la sesión y las cookies
 app.use(session({
   secret: 'tu_secreto',
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    httpOnly: true,   // Seguridad: no accesible desde JavaScript
+    secure: process.env.NODE_ENV === 'production', // Solo en HTTPS en producción
+    sameSite: 'lax',  // Protege contra ataques CSRF (puedes usar 'strict' si es necesario)
+    maxAge: 24 * 60 * 60 * 1000 // Expira en 1 día (en milisegundos)
+  }
 }));
 
 // 👇 Start handling routes here
@@ -77,8 +79,8 @@ app.use("/search", searchRoutes);
 const eventsRoutes = require("./routes/events.routes");
 app.use("/events", eventsRoutes);
 
-
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
 module.exports = app;
+

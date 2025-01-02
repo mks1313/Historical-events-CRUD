@@ -1,26 +1,27 @@
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{appTitle}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="icon" href="/images/favicon-history.ico" />
-      <link rel="stylesheet" href="/stylesheets/events-archive.css" /> 
-       <link rel="stylesheet" href="/stylesheets/event-edit.css" /> 
-        <link rel="stylesheet" href="/stylesheets/event-single.css" /> 
-        
-       
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Historical Events website to explore past events" />
+  <meta property="og:title" content="{{appTitle}}" />
+  <meta property="og:image" content="/images/preview.png" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/events-archive.css" />
+  <link rel="stylesheet" href="/stylesheets/event-edit.css" />
+  <link rel="stylesheet" href="/stylesheets/event-single.css" />
+  <link rel="icon" href="/images/favicon-history.ico" />
+  <title>{{appTitle}}</title>
+</head>
 
-  <body>
-    
-    {{{body}}}
-    
-   
+<body class="{{#if isLoggedIn}}logged-in{{else}}logged-out{{/if}}">
+  
+  {{{body}}}
 
-    <script src="/js/script.js"></script>
-  </body>
+  <script src="/js/script.js" defer></script>
+  
+</body>
 
 </html>

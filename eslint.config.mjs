@@ -6,8 +6,8 @@ export default [
   {
     languageOptions: {
       globals: {
-        ...globals.browser,  // Mantén las variables globales para el navegador
-        ...globals.node,     // Agrega las variables globales para Node.js
+        ...globals.browser,  // Manténer las variables globales para el navegador
+        ...globals.node,     // Agregar las variables globales para Node.js
       },
     },
   },
