@@ -6,14 +6,12 @@ const fileUploader = require("../config/cloudinary.config");
 const User = require("../models/User.model");
 const {
   HistoricalEvent,
-  Comment,
-  Rating,
 } = require("../models/HistoricalEvent.model");
 
 // RUTA DE PERFIL
 //  manejo de errores(mensajes de error) para archivos grandes(manejo multer)
 
-router.get("/profile", isLoggedIn, (req, res) => {
+router.get("/profile", isLoggedIn, (req, res, next) => {
   const user = req.session.user;
 
   HistoricalEvent.countDocuments({ creator: user })
@@ -28,7 +26,7 @@ router.get("/profile", isLoggedIn, (req, res) => {
 });
 
 // RUTA DE EDITAR PERFIL
-router.get("/editprofile", isLoggedIn, (req, res, next) => {
+router.get("/editprofile", isLoggedIn, (req, res) => {
   res.render("users/edituser-profile", { user: req.session.user });
 });
 

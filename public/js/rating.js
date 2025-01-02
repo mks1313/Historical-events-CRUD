@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const starInputs = document.querySelectorAll('.star-input');
-  const starLabels = document.querySelectorAll('.star-label');
+  // const starLabels = document.querySelectorAll('.star-label');
 
   starInputs.forEach(function (input, index) {
       input.addEventListener('change', function () {
@@ -20,16 +20,16 @@ function fillStars(count) {
   });
 }
 
-function isValidRating(value) {
-  const numericValue = parseFloat(value);
-  return !isNaN(numericValue) && numericValue >= 1 && numericValue <= 5;
-}
+// function isValidRating(value) {
+//   const numericValue = parseFloat(value);
+//   return !isNaN(numericValue) && numericValue >= 1 && numericValue <= 5;
+// }
 
-function rateEvent(rating) {
-  document.getElementById('rating').value = rating;
-  fillStars(rating);
-  calculateRating();  
-}
+// function rateEvent(rating) {
+//   document.getElementById('rating').value = rating;
+//   fillStars(rating);
+//   calculateRating();  
+// }
 
 
 
