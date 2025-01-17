@@ -23,7 +23,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.0.0",
     "hbs": "^4.2.0",
-    "mongoose": "^8.0.3",
+    "mongoose": "^8.9.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
@@ -31,7 +31,7 @@
     "semver": "^7.6.3",
     "serve-favicon": "^2.5.0",
     "tar": "^7.4.3",
-    "undici": "^7.2.0",
+    "undici": "^7.2.1",
     "vercel": "^32.3.0"
   },
   "devDependencies": {
